@@ -70,137 +70,149 @@
       
     <h2>Dentacoin</h2>      
 
-    <row class="col-md-12" style="border-bottom: 1px solid grey; font-size: 1.2em">
+    <row class="col-md-12"; font-size: 1.2em">
       <h3><a href="https://www.cryptopia.co.nz/Exchange/?market=DCN_BTC" target="_blank">BTC</a></h3>
-      <row style="font-weight: bold">
-        <div class="col-md-4 col-xs-4" style="padding-top: 10px; padding-bottom: 5px">
-          Total Dentacoins
+      <row>
+        <div class="col-md-4 col-xs-12">
+          <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+            Total Dentacoins
+          </div>
+          <div>
+            DCN <%=DCN%>
+          </div>
         </div>
-        <div class="col-md-4 col-xs-4" style="padding-top: 10px; padding-bottom: 5px">
-          Dentacoin value in BTC
-        </div>          
-        <div class="col-md-4 col-xs-4" style="padding-top: 10px; padding-bottom: 5px">
-          BTC value in Euro
+        <div class="col-md-4 col-xs-12">
+          <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+            Dentacoin value in BTC
+          </div>     
+          <div>
+            BTC <%=DCN_BTC_LastPrice.toFixed(8)%>
+          </div>     
         </div>
-      </row>
-      <row style="font-size: 1.5em;"">
-        <div class="col-md-4 col-xs-4">
-        DCN <%=DCN%>
-        </div>
-        <div class="col-md-4 col-xs-4">
-        BTC <%=DCN_BTC_LastPrice.toFixed(8)%>
-        </div>
-        <div class="col-md-4 col-xs-4">
-        EUR <%=BTC_EUR%> 
-        </div>
-      </row>
-
-      <row style="font-weight: bold">
-        <div class="col-md-4 col-xs-4" style="padding-top: 10px; padding-bottom: 5px">
-          Total dentacoin value in BTC
-        </div>          
-        <div class="col-md-8 col-xs-8" style="padding-top: 10px; padding-bottom: 5px">
-          Dentacoin value in euro
+        <div class="col-md-4 col-xs-12">
+          <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+            BTC value in Euro
+          </div>
+          <div>
+            EUR <%=BTC_EUR%> 
+          </div>
         </div>
       </row>
-
-      <row style="color:green; font-size: 1.5em">
-        <div class="col-md-4 col-xs-4" style="padding-bottom: 10px">
-          BTC <%=DCN_BTC_LastPrice*DCN%>
+      <row>
+        <div class="col-md-4 col-xs-6">
+          <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+            Total dentacoin value in BTC
+          </div>        
+          <div style="padding-bottom: 10px; color: green; font-size: 1.5em">
+            BTC <%=DCN_BTC_LastPrice*DCN%>
+          </div>  
         </div>
-        <div class="col-md-8 col-xs-8" style="padding-bottom: 10px">
-          EUR <%=(BTC_EUR*(DCN_BTC_LastPrice*DCN)).toFixed(2)%>
+        <div class="col-md-4 col-xs-6">
+          <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+            Dentacoin value in euro
+          </div>
+           <div style="padding-bottom: 10px; color: green; font-size: 1.5em">
+            EUR <%=(BTC_EUR*(DCN_BTC_LastPrice*DCN)).toFixed(2)%>
+          </div>
         </div>
       </row>
     </row>
       <!-- LTC -->
 
-    <row class="col-md-12" style="border-bottom: 1px solid grey; font-size: 1.2em">
+    <row class="col-md-12" >
       <h3><a href="https://www.cryptopia.co.nz/Exchange/?market=DCN_LTC" target="_blank">LTC</a></h3>
-      <row style="font-weight: bold">
-        <div class="col-md-4 col-xs-4" style="padding-top: 10px; padding-bottom: 5px">
-          Total Dentacoins
+      <row>
+        <div class="col-md-4 col-xs-12">
+          <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+            Total Dentacoins
+          </div>
+          <div>
+            DCN <%=DCN%>
+          </div>
         </div>
-        <div class="col-md-4 col-xs-4" style="padding-top: 10px; padding-bottom: 5px">
-          Dentacoin value in LTC
-        </div>          
-        <div class="col-md-4 col-xs-4" style="padding-top: 10px; padding-bottom: 5px">
-          LTC value in Euro
+        <div class="col-md-4 col-xs-12">
+          <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+            Dentacoin value in LTC
+          </div>     
+          <div>
+            LTC <%=DCN_LTC_LastPrice.toFixed(8)%>
+          </div>     
         </div>
-      </row>
-      <row style="font-size: 1.5em;"">
-        <div class="col-md-4 col-xs-4 col-xs-4">
-        DCN <%=DCN%>
-        </div>
-        <div class="col-md-4 col-xs-4 col-xs-4">
-        LTC <%=DCN_LTC_LastPrice.toFixed(8)%>
-        </div>
-        <div class="col-md-4 col-xs-4 col-xs-4">
-        EUR <%=LTC_EUR%> 
-        </div>
-      </row>
-
-      <row style="font-weight: bold">
-        <div class="col-md-4 col-xs-4" style="padding-top: 10px; padding-bottom: 5px">
-          Total dentacoin value in LTC
-        </div>          
-        <div class="col-md-8 col-xs-8" style="padding-top: 10px; padding-bottom: 5px">
-          Dentacoin value in euro
+        <div class="col-md-4 col-xs-12">
+          <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+            LTC value in Euro
+          </div>
+          <div>
+            EUR <%=LTC_EUR%> 
+          </div>
         </div>
       </row>
-
-      <row style="color:green; font-size: 1.5em">
-        <div class="col-md-4 col-xs-4" style="padding-bottom: 10px">
-          LTC <%=DCN_LTC_LastPrice*DCN%>
+      <row>
+        <div class="col-md-4 col-xs-6">
+          <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+            Total dentacoin value in LTC
+          </div>        
+          <div style="padding-bottom: 10px; color: green; font-size: 1.5em">
+            LTC <%=DCN_LTC_LastPrice*DCN%>
+          </div>  
         </div>
-        <div class="col-md-8 col-xs-8" style="padding-bottom: 10px">
-          EUR <%=(LTC_EUR*(DCN_LTC_LastPrice*DCN)).toFixed(2)%>
+        <div class="col-md-4 col-xs-6">
+          <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+            Dentacoin value in euro
+          </div>
+           <div style="padding-bottom: 10px; color: green; font-size: 1.5em">
+            EUR <%=(LTC_EUR*(DCN_LTC_LastPrice*DCN)).toFixed(2)%>
+          </div>
         </div>
       </row>
     </row>
 
     <!-- DOGE -->
 
-    <row class="col-md-12" style="border-bottom: 1px solid grey; font-size: 1.2em">
+    <row class="col-md-12">
       <h3><a href="https://www.cryptopia.co.nz/Exchange/?market=DCN_DOGE" target="_blank">DOGE</a></h3>
-      <row style="font-weight: bold">
-        <div class="col-md-4 col-xs-4" style="padding-top: 10px; padding-bottom: 5px">
-          Total Dentacoins
+      <row>
+        <div class="col-md-4 col-xs-12">
+          <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+            Total Dentacoins
+          </div>
+          <div>
+            DCN <%=DCN%>
+          </div>
         </div>
-        <div class="col-md-4 col-xs-4" style="padding-top: 10px; padding-bottom: 5px">
-          Dentacoin value in DOGE
-        </div>          
-        <div class="col-md-4 col-xs-4" style="padding-top: 10px; padding-bottom: 5px">
-          DOGE value in Euro
+        <div class="col-md-4 col-xs-12">
+          <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+            Dentacoin value in DOGE
+          </div>     
+          <div>
+            DOGE <%=DCN_DOGE_LastPrice.toFixed(8)%>
+          </div>     
         </div>
-      </row>
-      <row style="font-size: 1.5em">
-        <div class="col-md-4 col-xs-4">
-        DCN <%=DCN%>
-        </div>
-        <div class="col-md-4 col-xs-4">
-        DOGE <%=DCN_DOGE_LastPrice.toFixed(8)%>
-        </div>
-        <div class="col-md-4 col-xs-4">
-        EUR <%=DOGE_EUR%> 
-        </div>
-      </row>
-
-      <row style="font-weight: bold">
-        <div class="col-md-4 col-xs-4" style="padding-top: 10px; padding-bottom: 5px">
-          Total dentacoin value in DOGE
-        </div>          
-        <div class="col-md-8 col-xs-8" style="padding-top: 10px; padding-bottom: 5px">
-          Dentacoin value in euro
+        <div class="col-md-4 col-xs-12">
+          <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+            DOGE value in Euro
+          </div>
+          <div>
+            EUR <%=DOGE_EUR%> 
+          </div>
         </div>
       </row>
-
-      <row style="color:green; font-size: 1.5em">
-        <div class="col-md-4 col-xs-4" style="padding-bottom: 10px">
-          DOGE <%=DCN_DOGE_LastPrice*DCN%>
+      <row>
+        <div class="col-md-4 col-xs-6">
+          <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+            Total dentacoin value in DOGE
+          </div>        
+          <div style="padding-bottom: 10px; color: green; font-size: 1.5em">
+            DOGE <%=DCN_DOGE_LastPrice*DCN%>
+          </div>  
         </div>
-        <div class="col-md-8 col-xs-8" style="padding-bottom: 10px">
-          EUR <%=(DOGE_EUR*(DCN_DOGE_LastPrice*DCN)).toFixed(2)%>
+        <div class="col-md-4 col-xs-6">
+          <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+            Dentacoin value in euro
+          </div>
+           <div style="padding-bottom: 10px; color: green; font-size: 1.5em">
+            EUR <%=(DOGE_EUR*(DCN_DOGE_LastPrice*DCN)).toFixed(2)%>
+          </div>
         </div>
       </row>
     </row> 
