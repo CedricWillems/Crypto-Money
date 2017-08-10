@@ -8,62 +8,209 @@
 
   <% include ../partials/nav.ejs %>
 
+<%
+  var BTC_EUR = Number((BTC["EUR"]).toFixed(4));
+  var ETH_EUR = Number((ETH["EUR"]/ETH["ETH"]).toFixed(4));
+  var LTC_EUR = Number((LTC["EUR"]/LTC["LTC"]).toFixed(4));
+  var DOGE_EUR = Number((DOGE["EUR"]/DOGE["DOGE"]).toFixed(6));
+  var DCN_BTC_LastPrice = Number((DCN_BTC.LastPrice).toFixed(8));
+  var DCN_LTC_LastPrice = Number((DCN_LTC.LastPrice).toFixed(8));
+  var DCN_DOGE_LastPrice = Number((DCN_DOGE.LastPrice).toFixed(8));
+%>
+
 <div class="jumbotron text-center">
   <div class="container">
-    <a href="/" class="lang-logo">
-      <img src="/lang-logo.png">
-    </a>
-    <h1>Getting Started with Node on Heroku v1.0 dev branch</h1>
-    <p>This is a sample Node application deployed to Heroku. It's a reasonably simple app - but a good foundation for understanding how to get the most out of the Heroku platform.</p>
-    <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs"><span class="glyphicon glyphicon-flash"></span> Getting Started with Node</a>
-    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/node-js-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
+    <div style="font-size: 8em">
+      <span class="glyphicon glyphicon-btc"></span>
+    </div>
+    <h1>Crypto Currency</h1>
   </div>
 </div>
-<div class="container">
-  <h2><%=BTC["BTC"]%></h2>
-  <h2><%=LTC["LTC"]%></h2>
-  <h2><%=DOGE["DOGE"]%></h2>
+<div class="container">  
   <div class="alert alert-info text-center" role="alert">
-    To deploy your own copy, and learn the fundamentals of the Heroku platform, head over to the <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs" class="alert-link">Getting Started with Node on Heroku</a> tutorial.
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-info-sign"></span> How this sample app works</h3>
-      <ul>
-        <li>This app was deployed to Heroku, either using Git or by using <a href="https://github.com/heroku/node-js-getting-started">Heroku Button</a> on the repository.</li>
+      
+      <div class="row">
+        <div class="font- col-md-12">
+          <h2>  
+              <a href="https://www.cryptocompare.com/coins/btc/overview/EUR" target="_blank">BTC: € <%=BTC_EUR%></a>
+          </h2>
+        </div>
+      </div>
 
-        <li>When Heroku received the source code, it fetched all the dependencies in the <a href="https://github.com/heroku/node-js-getting-started/blob/master/package.json">package.json</a>, creating a deployable slug.</li>
-        <li>The platform then spins up a dyno, a lightweight container that provides an isolated environment in which the slug can be mounted and executed.</li>
-        <li>You can scale your app, manage it, and deploy over <a href="https://addons.heroku.com/">150 add-on services</a>, from the Dashboard or CLI.</li>
-      </ul>
+      <div class="row">
+        <div>
+          <div class="col-md-4">
+            <h3>  
+              <a href="https://www.cryptocompare.com/coins/eth/overview/EUR" target="_blank">ETH: € <%=ETH_EUR%></a>
+            </h3>
+          </div>
+        </div>
+
+        <div>
+          <div class="col-md-4">          
+            <h3>
+              <a href="https://www.cryptocompare.com/coins/ltc/overview/EUR" target="_blank">LTC: € <%=LTC_EUR%></a>
+            </h3>  
+          </div>
+        </div>
+
+        <div>
+          <div class="col-md-4">
+            <h3>
+              <a href="https://www.cryptocompare.com/coins/doge/overview/EUR" target="_blank">DOGE: € <%=DOGE_EUR%></a>
+            </h3>   
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <a name="Dentacoin"></a>
+  <row class="row">
+    <div class="col-md-12">
+      
+    <h2>Dentacoin</h2>      
+
+    <row class="col-md-12" style="border-bottom: 1px solid grey; font-size: 1.2em">
+      <h3><a href="https://www.cryptopia.co.nz/Exchange/?market=DCN_BTC" target="_blank">BTC</a></h3>
+      <row style="font-weight: bold">
+        <div class="col-md-4 col-xs-4" style="padding-top: 10px; padding-bottom: 5px">
+          Total Dentacoins
+        </div>
+        <div class="col-md-4 col-xs-4" style="padding-top: 10px; padding-bottom: 5px">
+          Dentacoin value in BTC
+        </div>          
+        <div class="col-md-4 col-xs-4" style="padding-top: 10px; padding-bottom: 5px">
+          BTC value in Euro
+        </div>
+      </row>
+      <row style="font-size: 1.5em;"">
+        <div class="col-md-4 col-xs-4">
+        DCN <%=DCN%>
+        </div>
+        <div class="col-md-4 col-xs-4">
+        BTC <%=DCN_BTC_LastPrice.toFixed(8)%>
+        </div>
+        <div class="col-md-4 col-xs-4">
+        EUR <%=BTC_EUR%> 
+        </div>
+      </row>
+
+      <row style="font-weight: bold">
+        <div class="col-md-4 col-xs-4" style="padding-top: 10px; padding-bottom: 5px">
+          Total dentacoin value in BTC
+        </div>          
+        <div class="col-md-8 col-xs-8" style="padding-top: 10px; padding-bottom: 5px">
+          Dentacoin value in euro
+        </div>
+      </row>
+
+      <row style="color:green; font-size: 1.5em">
+        <div class="col-md-4 col-xs-4" style="padding-bottom: 10px">
+          BTC <%=DCN_BTC_LastPrice*DCN%>
+        </div>
+        <div class="col-md-8 col-xs-8" style="padding-bottom: 10px">
+          EUR <%=(BTC_EUR*(DCN_BTC_LastPrice*DCN)).toFixed(2)%>
+        </div>
+      </row>
+    </row>
+      <!-- LTC -->
+
+    <row class="col-md-12" style="border-bottom: 1px solid grey; font-size: 1.2em">
+      <h3><a href="https://www.cryptopia.co.nz/Exchange/?market=DCN_LTC" target="_blank">LTC</a></h3>
+      <row style="font-weight: bold">
+        <div class="col-md-4 col-xs-4" style="padding-top: 10px; padding-bottom: 5px">
+          Total Dentacoins
+        </div>
+        <div class="col-md-4 col-xs-4" style="padding-top: 10px; padding-bottom: 5px">
+          Dentacoin value in LTC
+        </div>          
+        <div class="col-md-4 col-xs-4" style="padding-top: 10px; padding-bottom: 5px">
+          LTC value in Euro
+        </div>
+      </row>
+      <row style="font-size: 1.5em;"">
+        <div class="col-md-4 col-xs-4 col-xs-4">
+        DCN <%=DCN%>
+        </div>
+        <div class="col-md-4 col-xs-4 col-xs-4">
+        LTC <%=DCN_LTC_LastPrice.toFixed(8)%>
+        </div>
+        <div class="col-md-4 col-xs-4 col-xs-4">
+        EUR <%=LTC_EUR%> 
+        </div>
+      </row>
+
+      <row style="font-weight: bold">
+        <div class="col-md-4 col-xs-4" style="padding-top: 10px; padding-bottom: 5px">
+          Total dentacoin value in LTC
+        </div>          
+        <div class="col-md-8 col-xs-8" style="padding-top: 10px; padding-bottom: 5px">
+          Dentacoin value in euro
+        </div>
+      </row>
+
+      <row style="color:green; font-size: 1.5em">
+        <div class="col-md-4 col-xs-4" style="padding-bottom: 10px">
+          LTC <%=DCN_LTC_LastPrice*DCN%>
+        </div>
+        <div class="col-md-8 col-xs-8" style="padding-bottom: 10px">
+          EUR <%=(LTC_EUR*(DCN_LTC_LastPrice*DCN)).toFixed(2)%>
+        </div>
+      </row>
+    </row>
+
+    <!-- DOGE -->
+
+    <row class="col-md-12" style="border-bottom: 1px solid grey; font-size: 1.2em">
+      <h3><a href="https://www.cryptopia.co.nz/Exchange/?market=DCN_DOGE" target="_blank">DOGE</a></h3>
+      <row style="font-weight: bold">
+        <div class="col-md-4 col-xs-4" style="padding-top: 10px; padding-bottom: 5px">
+          Total Dentacoins
+        </div>
+        <div class="col-md-4 col-xs-4" style="padding-top: 10px; padding-bottom: 5px">
+          Dentacoin value in DOGE
+        </div>          
+        <div class="col-md-4 col-xs-4" style="padding-top: 10px; padding-bottom: 5px">
+          DOGE value in Euro
+        </div>
+      </row>
+      <row style="font-size: 1.5em">
+        <div class="col-md-4 col-xs-4">
+        DCN <%=DCN%>
+        </div>
+        <div class="col-md-4 col-xs-4">
+        DOGE <%=DCN_DOGE_LastPrice.toFixed(8)%>
+        </div>
+        <div class="col-md-4 col-xs-4">
+        EUR <%=DOGE_EUR%> 
+        </div>
+      </row>
+
+      <row style="font-weight: bold">
+        <div class="col-md-4 col-xs-4" style="padding-top: 10px; padding-bottom: 5px">
+          Total dentacoin value in DOGE
+        </div>          
+        <div class="col-md-8 col-xs-8" style="padding-top: 10px; padding-bottom: 5px">
+          Dentacoin value in euro
+        </div>
+      </row>
+
+      <row style="color:green; font-size: 1.5em">
+        <div class="col-md-4 col-xs-4" style="padding-bottom: 10px">
+          DOGE <%=DCN_DOGE_LastPrice*DCN%>
+        </div>
+        <div class="col-md-8 col-xs-8" style="padding-bottom: 10px">
+          EUR <%=(DOGE_EUR*(DCN_DOGE_LastPrice*DCN)).toFixed(2)%>
+        </div>
+      </row>
+    </row> 
+
     </div>
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-link"></span> Next Steps</h3>
-      <ul>
-        <li>If you are following the <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Getting Started</a> guide, then please head back to the tutorial and follow the next steps!</li>
-        <li>If you deployed this app by deploying the Heroku Button, then in a command line shell, run:</li>
-        <ul>
-          <li><code>git clone https://github.com/heroku/node-js-getting-started.git</code> - this will create a local copy of the source code for the app</li>
-          <li><code>cd node-js-getting-started</code> - change directory into the local source code repository</li>
-          <li><code>heroku git:remote -a &lt;your-app-name></code> - associate the Heroku app with the repository</li>
-          <li>You'll now be set up to run the app locally, or <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#push-local-changes">deploy changes</a> to Heroku</li>
-        </ul>
-      </ul>
-      <h3><span class="glyphicon glyphicon-link"></span> Helpful Links</h3>
-      <ul>
-        <li><a href="https://www.heroku.com/home">Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/">Heroku Dev Center</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Getting Started with Node on Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/deploying-nodejs">Deploying Node Apps on Heroku</a></li>
-      </ul>
     </div>
-  </div> <!-- row -->
+
    <div class="alert alert-info text-center" role="alert">
-    Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
+    <h2> Cedric Willems</h2>
   </div>
 </div>
-
-
 </body>
 </html>
