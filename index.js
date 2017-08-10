@@ -1,7 +1,6 @@
 var https = require('https');
 var http = require('http');
 
-var cool = require('cool-ascii-faces');
 var express = require('express');
 var app = express();
 var request = require("request")
@@ -77,10 +76,6 @@ app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
   response.render('pages/index', {DCN: DCN, BTC: BTC, LTC: LTC, DOGE: DOGE, ETH: ETH, DCN_BTC: DCN_BTC, DCN_LTC: DCN_LTC, DCN_DOGE: DCN_DOGE});
-});
-
-app.get('/cool', function(request, response) {
-  response.send(cool());
 });
 
 app.listen(app.get('port'), function() {
