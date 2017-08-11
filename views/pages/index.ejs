@@ -53,14 +53,11 @@
             <a href="https://www.cryptocompare.com/coins/eth/overview/EUR" target="_blank">ETH: € <%=ETH_EUR%></a>
           </h3>
         </div>
-
          <div class="col-md-4">          
           <h3>
             <a href="https://www.cryptocompare.com/coins/ltc/overview/EUR" target="_blank">LTC: € <%=LTC_EUR%></a>
           </h3>  
         </div>
-        <a name="Etherscan-wallet"></a>
-
         <div class="col-md-4">
           <h3>
             <a href="https://www.cryptocompare.com/coins/doge/overview/EUR" target="_blank">DOGE: € <%=DOGE_EUR%></a>
@@ -76,31 +73,25 @@
             <a href="https://www.cryptopia.co.nz/Exchange/?market=DCN_BTC" target="_blank">DCN: € <%=(DCN_BTC_LastPrice).toFixed(8)%></a>
           </h3>
         </div>
-
-         <div class="col-md-4">          
+        <div class="col-md-4">          
           <h3>
             <a href="https://coinmarketcap.com/assets/neverdie/" target="_blank">NDC: € <%=(NDC_BTC_USD*0.849698).toFixed(4)%></a>
           </h3>  
         </div>
-        <a name="Etherscan-wallet"></a>
-
-        <div class="col-md-4">
-          <h3>
-            <a href="https://www.cryptocompare.com/coins/doge/overview/EUR" target="_blank">DOGE: € <%=DOGE_EUR%></a>
-          </h3>   
-        </div>
       </div>
-    </div>
-  </div>  
-  
+    </div>  
+  </div>
 
   <!-- Etherscan Wallet -->
+  <a class="anchor" name="Etherscan-wallet"></a>        
   <% include coins/etherscan_wallet.ejs %>
 
   <!-- Dentacoin -->
+  <a class="anchor" name="Dentacoin"></a>
   <% include coins/dentacoin.ejs %>
 
   <!-- Neverdie -->
+  <a class="anchor" name="Neverdie"></a>
   <% include coins/neverdie.ejs %>
 
   </div>

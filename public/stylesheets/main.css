@@ -43,4 +43,12 @@
 .float_Coin_Names{
   position:absolute;
   z-index: 100;
+  right: 50px;
+}
+
+a.anchor {
+    display: block;
+    position: relative;
+    top: -40px;
+    visibility: hidden;
 }
