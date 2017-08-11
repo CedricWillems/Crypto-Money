@@ -1,7 +1,7 @@
 .jumbotron {
   background: #532F8C;
   color: white;
-  padding-top: 100px;
+  padding-top: 130px;
   padding-bottom: 80px; }
   .jumbotron .btn-primary {
     background: #845ac7;
@@ -33,4 +33,14 @@
 
 .hide{
   display: none;
+}
+
+.float_Coin_Button{
+  position: relative;
+
+}
+
+.float_Coin_Names{
+  position:absolute;
+  z-index: 100;
 }

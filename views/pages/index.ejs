@@ -18,6 +18,7 @@
   var DCN_DOGE_LastPrice = Number((DCN_DOGE.LastPrice).toFixed(8));
 
   var NDC_BTC_LastPrice = Number(NDC_BTC.price_btc).toFixed(8);
+  var NDC_BTC_USD = Number(NDC_BTC.price_usd).toFixed(4);
 %>
 
 <div class="jumbotron text-center">
@@ -28,53 +29,79 @@
     <h1>Crypto Currency</h1>
   </div>
 </div>
+
+
 <div class="custom_container">  
+
+<!-- Coin Names -->
+<% include coins/coin_names.ejs %>
+
   <div class="alert alert-info text-center" role="alert">
       
-      <div class="row">
-        <div class="font- col-md-12">
-          <h2>  
-              <a href="https://www.cryptocompare.com/coins/btc/overview/EUR" target="_blank">BTC: € <%=BTC_EUR%></a>
-          </h2>
-        </div>
+    <div class="row">
+      <div class="font- col-md-12">
+        <h2>  
+            <a href="https://www.cryptocompare.com/coins/btc/overview/EUR" target="_blank">BTC: € <%=BTC_EUR%></a>
+        </h2>
       </div>
+    </div>
 
-      <div class="row">
-        <div>
-          <div class="col-md-4">
-            <h3>  
-              <a href="https://www.cryptocompare.com/coins/eth/overview/EUR" target="_blank">ETH: € <%=ETH_EUR%></a>
-            </h3>
-          </div>
+    <div class="row">
+      <div>
+        <div class="col-md-4">
+          <h3>  
+            <a href="https://www.cryptocompare.com/coins/eth/overview/EUR" target="_blank">ETH: € <%=ETH_EUR%></a>
+          </h3>
         </div>
 
-        <div>
-          <div class="col-md-4">          
-            <h3>
-              <a href="https://www.cryptocompare.com/coins/ltc/overview/EUR" target="_blank">LTC: € <%=LTC_EUR%></a>
-            </h3>  
-          </div>
+         <div class="col-md-4">          
+          <h3>
+            <a href="https://www.cryptocompare.com/coins/ltc/overview/EUR" target="_blank">LTC: € <%=LTC_EUR%></a>
+          </h3>  
         </div>
-    <a name="Etherscan-wallet"></a>
+        <a name="Etherscan-wallet"></a>
 
-        <div>
-          <div class="col-md-4">
-            <h3>
-              <a href="https://www.cryptocompare.com/coins/doge/overview/EUR" target="_blank">DOGE: € <%=DOGE_EUR%></a>
-            </h3>   
-          </div>
+        <div class="col-md-4">
+          <h3>
+            <a href="https://www.cryptocompare.com/coins/doge/overview/EUR" target="_blank">DOGE: € <%=DOGE_EUR%></a>
+          </h3>   
         </div>
       </div>
     </div>
 
-    <!-- Etherscan Wallet -->
-    <% include coins/etherscan_wallet.ejs %>
+    <div class="row">
+      <div>
+        <div class="col-md-4">
+          <h3>  
+            <a href="https://www.cryptopia.co.nz/Exchange/?market=DCN_BTC" target="_blank">DCN: € <%=(DCN_BTC_LastPrice).toFixed(8)%></a>
+          </h3>
+        </div>
 
-    <!-- Dentacoin -->
-    <% include coins/dentacoin.ejs %>
+         <div class="col-md-4">          
+          <h3>
+            <a href="https://coinmarketcap.com/assets/neverdie/" target="_blank">NDC: € <%=(NDC_BTC_USD*0.849698).toFixed(4)%></a>
+          </h3>  
+        </div>
+        <a name="Etherscan-wallet"></a>
 
-    <!-- Neverdie -->
-    <% include coins/neverdie.ejs %>
+        <div class="col-md-4">
+          <h3>
+            <a href="https://www.cryptocompare.com/coins/doge/overview/EUR" target="_blank">DOGE: € <%=DOGE_EUR%></a>
+          </h3>   
+        </div>
+      </div>
+    </div>
+  </div>  
+  
+
+  <!-- Etherscan Wallet -->
+  <% include coins/etherscan_wallet.ejs %>
+
+  <!-- Dentacoin -->
+  <% include coins/dentacoin.ejs %>
+
+  <!-- Neverdie -->
+  <% include coins/neverdie.ejs %>
 
   </div>
 
