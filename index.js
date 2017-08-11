@@ -24,11 +24,22 @@ var DCN_BTC;
 var DCN_LTC;
 var DCN_DOGE;
 
+var ETH_WALLET;
+
 
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
 
+request({
+		url: "https://api.etherscan.io/api?module=account&action=balance&address=0xea4686C4bd1023d0c888079600c594efd524B7Aa&tag=latest&apikey=RVGA3SRP9YA1DDCECR8UQN81RV79PFV8ZJ",
+		json: true
+		}, function (error, response, body) {
+	    	if (!error && response.statusCode === 200) {
+	    		ETH_WALLET = body.result/1000000000000000000;	
+	    		console.log(ETH_WALLET);	
+    		}
+		})
 
 crypto_url.map(function (item){
 	request({
@@ -65,8 +76,7 @@ crypto_url.map(function (item){
 				}							
 
     		}
-		})
-	
+		})	
 });		
 
 
@@ -75,7 +85,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
-  response.render('pages/index', {DCN: DCN, BTC: BTC, LTC: LTC, DOGE: DOGE, ETH: ETH, DCN_BTC: DCN_BTC, DCN_LTC: DCN_LTC, DCN_DOGE: DCN_DOGE});
+  response.render('pages/index', {DCN: DCN, BTC: BTC, LTC: LTC, DOGE: DOGE, ETH: ETH, DCN_BTC: DCN_BTC, DCN_LTC: DCN_LTC, DCN_DOGE: DCN_DOGE, ETH_WALLET: ETH_WALLET});
 });
 
 app.listen(app.get('port'), function() {
