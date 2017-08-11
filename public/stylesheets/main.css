@@ -35,6 +35,22 @@
   display: none;
 }
 
+
+@media only screen and (max-width: 768px) {
+    .hide-mobile{
+      display: none;
+    }
+
+    .show-mobile{
+      display: inline !important;
+    }
+}
+
+.show-mobile{
+  display: none;
+}
+
+
 .float_Coin_Button{
   position: relative;
 
