@@ -52,3 +52,11 @@ a.anchor {
     top: -40px;
     visibility: hidden;
 }
+
+ul#coin_names{
+  width:100%;
+}
+
+ul#coin_names li{
+  text-align: center;
+}
