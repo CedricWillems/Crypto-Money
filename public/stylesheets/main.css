@@ -61,7 +61,7 @@ ul#coin_names li{
   text-align: center;
 }
 
-ul#coin_names li{
+ul#coin_names a{
   text-decoration: none;
 }
 
