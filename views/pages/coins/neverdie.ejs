@@ -57,9 +57,10 @@
           <div class="col-xs-12"></div>
 
           <row>
-            <div id="Neverdie_BTC_Calc" class="hide">
+            <div id="Neverdie_BTC_Calc" class="hide">              
               <div class="col-md-4 col-xs-6">
                 <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                  <button class="btn btn-primary Neverdie_BTC_Button_Calc"><span class="glyphicon glyphicon-remove"></span></button>
                   Calculate Neverdie value
                 </div>        
                 <div class="form-group" style="padding-bottom: 10px; color: blue; font-size: 1.5em">
@@ -75,7 +76,7 @@
                 </div>
               </div>
             </div>
-            <div id="Neverdie_BTC_Button_Calc" class="col-md-4 col-xs-6">
+            <div class="Neverdie_BTC_Button_Calc main col-md-4 col-xs-6">
               <button class="btn btn-primary"><span class="glyphicon glyphicon-chevron-right"></span> Calculate</button>
             </div>
           </row>
@@ -93,8 +94,9 @@ $(document).ready(function() {
     $("#Calculated_NDC_BTC").html(Calculated_NDC_BTC.toFixed(2));
   });
 
-    $("#Neverdie_BTC_Button_Calc").click(function(){
+  $(".Neverdie_BTC_Button_Calc").click(function(){
     $("#Neverdie_BTC_Calc").toggleClass("hide");
+    $(".Neverdie_BTC_Button_Calc.main").toggleClass("hide");
   })
 });
 </script>
