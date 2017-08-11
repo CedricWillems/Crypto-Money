@@ -61,6 +61,7 @@ ul#coin_names li{
   text-align: center;
 }
 
-ul#coin_names a:hover{
+ul#coin_names li:hover{
   text-decoration: none;
+  background-color: lightgrey;
 }
