@@ -1,3 +1,4 @@
+<a class="anchor" name="Home"></a>
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -15,8 +16,9 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
           <li class="active">
-          <a href="/"><span class="glyphicon glyphicon-home"></span> Home</a>
+          <a href="#Home"><span class="glyphicon glyphicon-home"></span> Home</a>
         </li>
+        <li><a href="#coin_prices">Coin Prices</a></li>  
         <li><a href="#Etherscan-wallet">Etherscan Wallet</a></li>  
         <li><a href="#Dentacoin">Dentacoin</a></li>
         <li><a href="#Neverdie">Neverdie</a></li>
@@ -75,6 +77,11 @@ $(document).ready(function() {
           });
         }
       }
+    });
+
+    $(".nav li").on("click", function() {
+      $(".nav li").removeClass("active");
+      $(this).addClass("active");
     });
 });
 </script>
