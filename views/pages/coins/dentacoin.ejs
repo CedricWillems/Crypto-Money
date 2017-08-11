@@ -1,0 +1,277 @@
+<a name="Dentacoin"></a>
+<row class="row">
+  <div class="col-md-12">
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="panel-title" style="font-size: 2em">Dentacoin - <a href="https://www.cryptopia.co.nz" target="_blank">Cryptopia</a></h2>
+      </div>
+      <div class="panel-body">
+
+        <row class="col-md-12" style="font-size: 1.2em">
+          <h3><a href="https://www.cryptopia.co.nz/Exchange/?market=DCN_BTC" target="_blank">BTC</a></h3>
+          <row>
+            <div class="col-md-4 col-xs-12">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                Total Dentacoins
+              </div>
+              <div>
+                DCN <span id="DCN"><%=DCN%></span>
+              </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                Dentacoin value in BTC
+              </div>     
+              <div>
+                BTC <%=DCN_BTC_LastPrice.toFixed(8)%>
+              </div>     
+            </div>
+            <div class="col-md-4 col-xs-12">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                BTC value in Euro
+              </div>
+              <div>
+                EUR <span id="BTC_EUR"><%=BTC_EUR%></span>
+              </div>
+            </div>
+          </row>
+          <row>
+            <div class="col-md-4 col-xs-6">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                Total dentacoin in BTC
+              </div>        
+              <div style="padding-bottom: 10px; color: green; font-size: 1.5em">
+                BTC <%=(DCN_BTC_LastPrice*DCN).toFixed(3)%>
+              </div>  
+            </div>
+            <div class="col-md-8 col-xs-6">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                Dentacoin value in euro
+              </div>
+               <div style="padding-bottom: 10px; color: green; font-size: 1.5em">
+                EUR <%=(BTC_EUR*(DCN_BTC_LastPrice*DCN)).toFixed(2)%>
+              </div>
+            </div>
+          </row>
+          <div class="col-xs-12"></div>
+
+          <row>
+            <div id="Dentacoin_BTC_Calc" class="hide">
+              <div class="col-md-4 col-xs-6">
+                <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                  Calculate Dentacoin value
+                </div>        
+                <div class="form-group" style="padding-bottom: 10px; color: blue; font-size: 1.5em">
+                  <input id="Calculate_DCN_BTC" class="form-control" type="Number" placeholder="Fill in Dentacoin value in BTC" />
+                </div>  
+              </div>
+              <div class="col-md-4 col-xs-6">
+                <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                  Calculated Dentacoin in euro
+                </div>
+                 <div style="padding-bottom: 10px; color: blue; font-size: 1.5em">
+                  EUR <span id="Calculated_DCN_BTC"></span>
+                </div>
+              </div>
+            </div>
+            <div id="Dentacoin_BTC_Button_Calc" class="col-md-4 col-xs-6">
+              <button class="btn btn-primary"><span class="glyphicon glyphicon-chevron-right"></span> Calculate</button>
+            </div>
+          </row>
+        </row>
+
+        <div style="border-bottom: 1px solid grey">&nbsp;</div>
+
+          <!-- LTC -->
+
+        <row class="col-md-12" style="font-size: 1.2em">
+          <h3><a href="https://www.cryptopia.co.nz/Exchange/?market=DCN_LTC" target="_blank">LTC</a></h3>
+          <row>
+            <div class="col-md-4 col-xs-12">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                Total Dentacoins
+              </div>
+              <div>
+                DCN <%=DCN%>
+              </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                Dentacoin value in LTC
+              </div>     
+              <div>
+                LTC <%=DCN_LTC_LastPrice.toFixed(8)%>
+              </div>     
+            </div>
+            <div class="col-md-4 col-xs-12">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                LTC value in Euro
+              </div>
+              <div>
+                EUR <span id="LTC_EUR"><%=LTC_EUR%></span>
+              </div>
+            </div>
+          </row>
+          <row>
+            <div class="col-md-4 col-xs-6">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                Total dentacoin in LTC
+              </div>        
+              <div style="padding-bottom: 10px; color: green; font-size: 1.5em">
+                LTC <%=(DCN_LTC_LastPrice*DCN).toFixed(3)%>
+              </div>  
+            </div>
+            <div class="col-md-8 col-xs-6">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                Dentacoin value in euro
+              </div>
+               <div style="padding-bottom: 10px; color: green; font-size: 1.5em">
+                EUR <%=(LTC_EUR*(DCN_LTC_LastPrice*DCN)).toFixed(2)%>
+              </div>
+            </div>
+          </row>
+          <div class="col-xs-12"></div>
+
+          <row>
+            <div id="Dentacoin_LTC_Calc" class="hide">
+              <div class="col-md-4 col-xs-6">
+                <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                  Calculate Dentacoin value
+                </div>        
+                <div class="form-group" style="padding-bottom: 10px; color: blue; font-size: 1.5em">
+                  <input id="Calculate_DCN_LTC" class="form-control" type="Number" placeholder="Fill in Dentacoin value in LTC" />
+                </div>  
+              </div>
+              <div class="col-md-4 col-xs-6">
+                <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                  Calculated Dentacoin in euro
+                </div>
+                 <div style="padding-bottom: 10px; color: blue; font-size: 1.5em">
+                  EUR <span id="Calculated_DCN_LTC"></span>
+                </div>
+              </div>
+            </div>
+
+            <div id="Dentacoin_LTC_Button_Calc" class="col-md-4 col-xs-6">
+              <button class="btn btn-primary"><span class="glyphicon glyphicon-chevron-right"></span> Calculate</button>
+            </div>
+          </row>
+        </row>
+
+        <div style="border-bottom: 1px solid grey">&nbsp;</div>
+
+        <!-- DOGE -->
+
+        <row class="col-md-12" style="font-size: 1.2em">
+          <h3><a href="https://www.cryptopia.co.nz/Exchange/?market=DCN_DOGE" target="_blank">DOGE</a></h3>
+          <row>
+            <div class="col-md-4 col-xs-12">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                Total Dentacoins
+              </div>
+              <div>
+                DCN <%=DCN%>
+              </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                Dentacoin value in DOGE
+              </div>     
+              <div>
+                DOGE <%=DCN_DOGE_LastPrice.toFixed(8)%>
+              </div>     
+            </div>
+            <div class="col-md-4 col-xs-12">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                DOGE value in Euro
+              </div>
+              <div>
+                EUR <span id="DOGE_EUR"><%=DOGE_EUR%></span>
+              </div>
+            </div>
+          </row>
+          <row>
+            <div class="col-md-4 col-xs-6">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                Total dentacoin in DOGE
+              </div>        
+              <div style="padding-bottom: 10px; color: green; font-size: 1.5em">
+                DOGE <%=(DCN_DOGE_LastPrice*DCN).toFixed(3)%>
+              </div>  
+            </div>
+            <div class="col-md-8 col-xs-6">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                Dentacoin value in euro
+              </div>
+               <div style="padding-bottom: 10px; color: green; font-size: 1.5em">
+                EUR <%=(DOGE_EUR*(DCN_DOGE_LastPrice*DCN)).toFixed(2)%>
+              </div>
+            </div>
+          </row>
+          <div class="col-xs-12"></div>
+
+          <row>
+            <div id="Dentacoin_DOGE_Calc" class="hide">
+              <div class="col-md-4 col-xs-6">
+                <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                  Calculate Dentacoin value
+                </div>        
+                <div class="form-group" style="padding-bottom: 10px; color: blue; font-size: 1.5em">
+                  <input id="Calculate_DCN_DOGE" class="form-control" type="Number" placeholder="Fill in Dentacoin value in DOGE" />
+                </div>  
+              </div>
+              <div class="col-md-4 col-xs-6">
+                <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                  Calculated Dentacoin in euro
+                </div>
+                 <div style="padding-bottom: 10px; color: blue; font-size: 1.5em">
+                  EUR <span id="Calculated_DCN_DOGE"></span>
+                </div>
+              </div>
+            </div>
+            <div id="Dentacoin_DOGE_Button_Calc" class="col-md-4 col-xs-6">
+              <button class="btn btn-primary"><span class="glyphicon glyphicon-chevron-right"></span> Calculate</button>
+            </div>
+          </row>
+        </row> 
+      </div>
+    </div>
+  </div>
+</row>
+
+<script>
+  
+$(document).ready(function() {
+  $("#Calculate_DCN_BTC").on("input", function() {
+
+    var Calculated_DCN_BTC = Number($("#BTC_EUR").html())*($("#Calculate_DCN_BTC").val() * Number($("#DCN").html()));
+    $("#Calculated_DCN_BTC").html(Calculated_DCN_BTC.toFixed(2));
+  });
+
+  $("#Calculate_DCN_LTC").on("input", function() {
+
+    var Calculated_DCN_LTC = Number($("#LTC_EUR").html())*($("#Calculate_DCN_LTC").val() * Number($("#DCN").html()));
+    $("#Calculated_DCN_LTC").html(Calculated_DCN_LTC.toFixed(2));
+  });
+
+  $("#Calculate_DCN_DOGE").on("input", function() {
+
+    var Calculated_DCN_DOGE = Number($("#DOGE_EUR").html())*($("#Calculate_DCN_DOGE").val() * Number($("#DCN").html()));
+    $("#Calculated_DCN_DOGE").html(Calculated_DCN_DOGE.toFixed(2));
+  });
+
+
+  $("#Dentacoin_BTC_Button_Calc").click(function(){
+    $("#Dentacoin_BTC_Calc").toggleClass("hide");
+  })
+
+  $("#Dentacoin_LTC_Button_Calc").click(function(){
+    $("#Dentacoin_LTC_Calc").toggleClass("hide");
+  })
+
+  $("#Dentacoin_DOGE_Button_Calc").click(function(){
+    $("#Dentacoin_DOGE_Calc").toggleClass("hide");
+  })
+});
+</script>

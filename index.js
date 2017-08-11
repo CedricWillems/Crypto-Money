@@ -12,9 +12,17 @@ var crypto_url = [
 					"https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=ETH,USD,EUR",
 					"https://www.cryptopia.co.nz/api/GetMarket/DCN_BTC",
 					"https://www.cryptopia.co.nz/api/GetMarket/DCN_LTC",
-					"https://www.cryptopia.co.nz/api/GetMarket/DCN_DOGE"
+					"https://www.cryptopia.co.nz/api/GetMarket/DCN_DOGE",
 				];
 
+var neverdie_url = [
+					"https://api.coinmarketcap.com/v1/ticker/neverdie/",
+];
+
+// Etherscan Wallet
+var ETH_WALLET;
+
+// Dentacoin
 var DCN = 800000;
 var BTC;
 var LTC;
@@ -24,7 +32,9 @@ var DCN_BTC;
 var DCN_LTC;
 var DCN_DOGE;
 
-var ETH_WALLET;
+// Neverdie
+var NDC = 84;
+var NDC_BTC = 5;
 
 
 app.set('port', (process.env.PORT || 5000));
@@ -37,7 +47,7 @@ request({
 		}, function (error, response, body) {
 	    	if (!error && response.statusCode === 200) {
 	    		ETH_WALLET = body.result/1000000000000000000;	
-	    		console.log(ETH_WALLET);	
+	    		console.log("ETH_WALLET");	
     		}
 		})
 
@@ -73,19 +83,34 @@ crypto_url.map(function (item){
 				}else if(body.Data.Label === "DCN/DOGE"){
 			    	DCN_DOGE = body.Data;
 	    			console.log("DCN_DOGE");
-				}							
+				}	
 
     		}
 		})	
 });		
 
+neverdie_url.map(function (item){
+	request({
+		url: item,
+		json: true
+		}, function (error, response, body) {
+
+	    	if (!error && response.statusCode === 200) {
+				if(body[0].id === "neverdie"){
+			    	NDC_BTC = body[0];
+	    			console.log("NDC_BTC");
+				}	
+
+    		}
+		})	
+})
 
 // views is directory for all template files
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
-  response.render('pages/index', {DCN: DCN, BTC: BTC, LTC: LTC, DOGE: DOGE, ETH: ETH, DCN_BTC: DCN_BTC, DCN_LTC: DCN_LTC, DCN_DOGE: DCN_DOGE, ETH_WALLET: ETH_WALLET});
+  response.render('pages/index', {ETH_WALLET: ETH_WALLET, DCN: DCN, BTC: BTC, LTC: LTC, DOGE: DOGE, ETH: ETH, DCN_BTC: DCN_BTC, DCN_LTC: DCN_LTC, DCN_DOGE: DCN_DOGE, NDC: NDC, NDC_BTC: NDC_BTC});
 });
 
 app.listen(app.get('port'), function() {
