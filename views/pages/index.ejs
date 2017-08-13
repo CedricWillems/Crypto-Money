@@ -9,16 +9,19 @@
   <% include ../partials/nav.ejs %>
 
   <%
-    var BTC_EUR = Number((BTC["EUR"]).toFixed(4));
-    var ETH_EUR = Number((ETH["EUR"]/ETH["ETH"]).toFixed(4));
-    var LTC_EUR = Number((LTC["EUR"]/LTC["LTC"]).toFixed(4));
-    var DOGE_EUR = Number((DOGE["EUR"]/DOGE["DOGE"]).toFixed(6));
-    var DCN_BTC_LastPrice = Number((DCN_BTC.LastPrice).toFixed(8));
-    var DCN_LTC_LastPrice = Number((DCN_LTC.LastPrice).toFixed(8));
-    var DCN_DOGE_LastPrice = Number((DCN_DOGE.LastPrice).toFixed(8));
+    var CC_BTC_EUR = Number((CC_BTC["EUR"]).toFixed(4));
+    var CC_ETH_EUR = Number((CC_ETH["EUR"]/CC_ETH["ETH"]).toFixed(4));
+    var CC_LTC_EUR = Number((CC_LTC["EUR"]/CC_LTC["LTC"]).toFixed(4));
+    var CC_DOGE_EUR = Number((CC_DOGE["EUR"]/CC_DOGE["DOGE"]).toFixed(6));
+    var C_DCN_BTC_LastPrice = Number((C_DCN_BTC.LastPrice).toFixed(8));
+    var C_DCN_LTC_LastPrice = Number((C_DCN_LTC.LastPrice).toFixed(8));
+    var C_DCN_DOGE_LastPrice = Number((C_DCN_DOGE.LastPrice).toFixed(8));
 
-    var NDC_BTC_LastPrice = Number(NDC_BTC.price_btc).toFixed(8);
-    var NDC_BTC_USD = Number(NDC_BTC.price_usd).toFixed(4);
+    var CMC_NDC_BTC_LastPrice = Number(CMC_NDC_BTC.price_btc).toFixed(8);
+    var CMC_NDC_BTC_USD = Number(CMC_NDC_BTC.price_usd).toFixed(4);
+
+    var CMC_DCN_BTC_LastPrice = Number(CMC_DCN_BTC.price_btc).toFixed(8);
+    var CMC_DCN_BTC_USD = Number(CMC_DCN_BTC.price_usd).toFixed(4);
   %>
 
   <div class="jumbotron text-center">
