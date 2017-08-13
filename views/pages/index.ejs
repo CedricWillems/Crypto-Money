@@ -5,9 +5,8 @@
 </head>
 
 <body>
-
-  <% include ../partials/nav.ejs %>
-
+<!-- Const -->
+  <a class="anchor" name="Home"></a>
   <%
     var CC_BTC_EUR = Number((CC_BTC["EUR"]).toFixed(4));
     var CC_ETH_EUR = Number((CC_ETH["EUR"]/CC_ETH["ETH"]).toFixed(4));
@@ -22,18 +21,22 @@
 
     var CMC_DCN_BTC_LastPrice = Number(CMC_DCN_BTC.price_btc).toFixed(8);
     var CMC_DCN_BTC_USD = Number(CMC_DCN_BTC.price_usd).toFixed(4);
-  %>
+  %>  
 
-  <div class="jumbotron text-center">
-    <div class="container">
-      <div style="font-size: 8em">
-        <span class="glyphicon glyphicon-btc"></span>
+    <div class="jumbotron text-center" style="padding-top:50px; padding-bottom: 35px;">
+      <div class="custom_container">
+        <div style="font-size: 8em">
+          <span class="glyphicon glyphicon-btc"></span>
+        </div>
+        <h1>Crypto Currency</h1>
       </div>
-      <h1>Crypto Currency</h1>
     </div>
-  </div>
 
   <div class="custom_container">  
+    <!-- Navigation -->    
+    <div class="row">
+      <% include ../partials/nav.ejs %> 
+    </div>
 
     <!-- Coin Names -->
     <% include coins/coin_names.ejs %>
@@ -54,10 +57,9 @@
     <a class="anchor" name="Neverdie"></a>
     <% include coins/neverdiecoin.ejs %>
 
-  </div>
-
-   <div class="alert alert-info text-center" role="alert">
-    <h2> Cedric Willems</h2>
+    <div class="alert alert-info text-center" role="alert">
+      <h2> &copy; Cedric Willems</h2>
+    </div>
   </div>
 </body>
 </html>

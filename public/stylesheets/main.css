@@ -35,6 +35,19 @@
   display: none;
 }
 
+.dropdown-menu { 
+  background-color: #454545;
+  padding: 5px;
+}
+
+.dropdown-menu li a{
+  color: white !important;  
+}
+
+.dropdown-menu li a:hover{
+  background-color: black;
+}
+
 
 @media only screen and (max-width: 768px) {
     .hide-mobile{
@@ -81,7 +94,20 @@ ul#coin_names a{
   text-decoration: none;
 }
 
-ul#coin_names li:hover{
+ul#coin_names li:hover~, ul#coin_names li:active{
   background-color: lightgrey;
 }
 
+.affix {
+    top:0;
+    width: 100%;
+    z-index: 9999 !important;
+}
+.navbar {
+    margin-bottom: 0px;
+}
+
+.affix ~ .container-fluid {
+   position: relative;
+   top: 50px;
+}
