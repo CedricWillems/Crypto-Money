@@ -26,6 +26,17 @@ var coinmarketcap_url = [
 // Etherscan Wallet
 var ES_ETH_WALLET;
 
+// Nanopool
+const NP_BALANCE_url = "https://api.nanopool.org/v1/eth/balance/0xea4686c4bd1023d0c888079600c594efd524b7aa";
+const NP_REPORTED_HASHRATE_url = "https://api.nanopool.org/v1/eth/reportedhashrate/0xea4686c4bd1023d0c888079600c594efd524b7aa";
+const NP_CURRENT_HASHRATE_url = "https://api.nanopool.org/v1/eth/hashrate/0xea4686c4bd1023d0c888079600c594efd524b7aa";
+const NP_AVG_HASHRATE_url = "https://api.nanopool.org/v1/eth/avghashratelimited/0xea4686c4bd1023d0c888079600c594efd524b7aa/6";
+
+var NP_BALANCE;
+var NP_REPORTED_HASHRATE;
+var NP_CURRENT_HASHRATE;
+var NP_AVG_HASHRATE;
+
 // Prices Cryptocompare
 var CC_BTC;
 var CC_LTC;
@@ -54,6 +65,7 @@ app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
 
+// Etherscan
 request({
 	url: "https://api.etherscan.io/api?module=account&action=balance&address=0xea4686C4bd1023d0c888079600c594efd524B7Aa&tag=latest&apikey=RVGA3SRP9YA1DDCECR8UQN81RV79PFV8ZJ",
 	json: true
@@ -61,6 +73,55 @@ request({
     	if (!error && response.statusCode === 200) {
     		ES_ETH_WALLET = body.result/1000000000000000000;	
     		console.log("ETH_WALLET");	
+		}
+	})
+
+// Nanopool
+// Balance
+request({
+	url: NP_BALANCE_url,
+	json: true
+	}, function (error, response, body) {
+    	if (!error && response.statusCode === 200) {
+    		NP_BALANCE = body.data;	
+    		console.log("NP_BALANCE");	
+    		//console.log(NP_BALANCE);
+		}
+	})
+
+// Current Hashrate
+request({
+	url: NP_CURRENT_HASHRATE_url,
+	json: true
+	}, function (error, response, body) {
+    	if (!error && response.statusCode === 200) {
+    		NP_CURRENT_HASHRATE = body.data;	
+    		console.log("NP_CURRENT_HASHRATE");	
+    		//console.log(NP_CURRENT_HASHRATE);
+		}
+	})
+
+// Reported Hashrate
+request({
+	url: NP_REPORTED_HASHRATE_url,
+	json: true
+	}, function (error, response, body) {
+    	if (!error && response.statusCode === 200) {
+    		NP_REPORTED_HASHRATE = body.data;	
+    		console.log("NP_REPORTED_HASHRATE");	
+    		//console.log(NP_REPORTED_HASHRATE);
+		}
+	})
+
+// Average Hashrate last 6 hours
+request({
+	url: NP_AVG_HASHRATE_url,
+	json: true
+	}, function (error, response, body) {
+    	if (!error && response.statusCode === 200) {
+    		NP_AVG_HASHRATE = body.data;	
+    		console.log("NP_AVG_HASHRATE");	
+    		//console.log(NP_AVG_HASHRATE);
 		}
 	})
 
@@ -150,6 +211,8 @@ app.get('/', function(request, response) {
   response.render('pages/index', {
 // Etherscan wallet
   	ES_ETH_WALLET: ES_ETH_WALLET, 
+// Nanopool Info
+	NP_BALANCE : NP_BALANCE,NP_REPORTED_HASHRATE: NP_REPORTED_HASHRATE, NP_CURRENT_HASHRATE: NP_CURRENT_HASHRATE, NP_AVG_HASHRATE: NP_AVG_HASHRATE,
 // Coin Market prices
 	CC_BTC: CC_BTC, CC_LTC: CC_LTC, CC_DOGE: CC_DOGE, CC_ETH: CC_ETH, 
 // Constants
