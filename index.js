@@ -23,6 +23,9 @@ var coinmarketcap_url = [
 					"https://api.coinmarketcap.com/v1/ticker/neverdie/",
 ];
 
+// Poloniex
+var ETH_Historical_Data;
+
 // Etherscan Wallet
 var ES_ETH_WALLET;
 
@@ -75,6 +78,24 @@ request({
     		console.log("ETH_WALLET");	
 		}
 	})
+
+var PREV_WEEK = Date.now()/1000-604800;
+var PREV_WEEK_URL = "https://poloniex.com/public?command=returnChartData&currencyPair=BTC_ETH&start="+PREV_WEEK+"&end=9999999999&period=14400";
+console.log(PREV_WEEK);
+console.log(PREV_WEEK_URL);
+
+// Poloniex
+request({
+	url: PREV_WEEK_URL,
+	json: true
+	}, function (error, response, body) {
+    	if (!error && response.statusCode === 200) {
+    		ETH_Historical_Data = body;	
+    		console.log("ETH_Historical_Data");	
+    		console.log(ETH_Historical_Data);	
+		}
+	})
+
 
 // Nanopool
 // Balance
@@ -215,6 +236,8 @@ app.get('/', function(request, response) {
 	NP_BALANCE : NP_BALANCE,NP_REPORTED_HASHRATE: NP_REPORTED_HASHRATE, NP_CURRENT_HASHRATE: NP_CURRENT_HASHRATE, NP_AVG_HASHRATE: NP_AVG_HASHRATE,
 // Coin Market prices
 	CC_BTC: CC_BTC, CC_LTC: CC_LTC, CC_DOGE: CC_DOGE, CC_ETH: CC_ETH, 
+// Poloniex Historical data
+	ETH_Historical_Data: ETH_Historical_Data,
 // Constants
 	DCN: DCN, NDC: NDC, 
 // Cryptopia Dentacoin
