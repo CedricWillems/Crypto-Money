@@ -473,17 +473,18 @@ $(document).ready(function() {
   var DCN_BTC_Historical_Data_date = [];
   var DCN_BTC_Historical_Data_price = [];
 
-  <%for (var i = 0; i < C_DCN_BTC_CHART.length; i++) {
+  <%for (var i = 0; i < C_DCN_BTC_CHART.length; i += 5) {
     %> 
+    console.log(<%=i%>);
       DCN_BTC_Historical_Data_date.push(new Date(<%=C_DCN_BTC_CHART[i].Timestamp*1000%>).toLocaleDateString());      
       DCN_BTC_Historical_Data_price.push(<%=(CC_BTC_EUR*(C_DCN_BTC_CHART[i].Price*DCN)).toFixed(2)%>);
     <%
   }
   %>
 
-  console.log("BTC");
+  /*console.log("BTC");
   console.log(DCN_BTC_Historical_Data_date);
-  console.log(DCN_BTC_Historical_Data_price);
+  console.log(DCN_BTC_Historical_Data_price);*/
 
   var ctx = document.getElementById("DCN_BTC_CHART").getContext('2d');
   var myChart = new Chart(ctx, {
@@ -535,9 +536,9 @@ $(document).ready(function() {
   }
   %>
 
-  console.log("LTC");
+  /*console.log("LTC");
   console.log(DCN_LTC_Historical_Data_date);
-  console.log(DCN_LTC_Historical_Data_price);
+  console.log(DCN_LTC_Historical_Data_price);*/
 
   var ctx = document.getElementById("DCN_LTC_CHART").getContext('2d');
   var myChart = new Chart(ctx, {
@@ -589,9 +590,9 @@ $(document).ready(function() {
   }
   %>
 
-  console.log("DOGE");
+  /*console.log("DOGE");
   console.log(DCN_DOGE_Historical_Data_date);
-  console.log(DCN_DOGE_Historical_Data_price);
+  console.log(DCN_DOGE_Historical_Data_price);*/
 
   var ctx = document.getElementById("DCN_DOGE_CHART").getContext('2d');
   var myChart = new Chart(ctx, {
