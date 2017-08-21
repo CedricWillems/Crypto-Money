@@ -25,6 +25,6 @@ $ git push heroku master
 $ heroku open
 ```
 
-## Deploying to Heroku
+## What's it about?
 
 Simple currency overview.
