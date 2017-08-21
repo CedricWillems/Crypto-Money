@@ -127,7 +127,7 @@
 
   <%for (var i = 0; i < ETH_Historical_Data.length; i++) {
     %> 
-      ETH_Historical_Data_date.push(new Date(<%=ETH_Historical_Data[i].date%>*1000).toLocaleDateString());      
+      ETH_Historical_Data_date.push(moment(<%=ETH_Historical_Data[i].date%>*1000).format("YYYY-MM-DD HH:mm"));      
       ETH_Historical_Data_open.push(<%=(ETH_Historical_Data[i].open*CC_BTC_EUR).toFixed(2)%>);
       ETH_Historical_Data_close.push(<%=(ETH_Historical_Data[i].close*CC_BTC_EUR).toFixed(2)%>);
       ETH_Historical_Data_high.push(<%=(ETH_Historical_Data[i].high*CC_BTC_EUR).toFixed(2)%>);
@@ -203,6 +203,10 @@
             scaleLabel: {
               display: true,
               labelString: 'Date'
+            },
+            type: 'time',
+            time: {
+              unit: 'hour'
             }
           }]
         }

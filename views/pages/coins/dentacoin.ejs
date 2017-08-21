@@ -400,7 +400,7 @@
 </div>
 
 <script>
-  
+  moment().format();
 $(document).ready(function() {
   $('[data-toggle="tooltip"]').tooltip();   
 
@@ -474,9 +474,9 @@ $(document).ready(function() {
   var DCN_BTC_Historical_Data_date = [];
   var DCN_BTC_Historical_Data_price = [];
 
-<%for (var i = C_DCN_BTC_CHART.length - 1; i >= 0; i-= 15) {
+<%for (var i = C_DCN_BTC_CHART.length - 1; i >= 0; i-= 5) {
   %>
-    DCN_BTC_Historical_Data_date.push(new Date(<%=C_DCN_BTC_CHART[i].Timestamp*1000%>).toLocaleDateString());      
+    DCN_BTC_Historical_Data_date.push(moment(<%=C_DCN_BTC_CHART[i].Timestamp*1000%>).format("YYYY-MM-DD HH:mm"));      
     DCN_BTC_Historical_Data_price.push(<%=(CC_BTC_EUR*(C_DCN_BTC_CHART[i].Price*DCN)).toFixed(2)%>);
   <%
 }
@@ -518,6 +518,10 @@ $(document).ready(function() {
             scaleLabel: {
               display: true,
               labelString: 'Date'
+            },
+            type: 'time',
+            time: {
+               unit: 'hour'
             }
           }]
         }
@@ -530,7 +534,7 @@ $(document).ready(function() {
 
   <%for (var i = 0; i < C_DCN_LTC_CHART.length; i++) {
     %> 
-      DCN_LTC_Historical_Data_date.push(new Date(<%=C_DCN_LTC_CHART[i].Timestamp*1000%>).toLocaleDateString());      
+      DCN_LTC_Historical_Data_date.push(moment(<%=C_DCN_LTC_CHART[i].Timestamp*1000%>).format("YYYY-MM-DD HH:mm"));      
       DCN_LTC_Historical_Data_price.push(<%=(CC_LTC_EUR*(C_DCN_LTC_CHART[i].Price*DCN)).toFixed(2)%>);
     <%
   }
@@ -572,6 +576,10 @@ $(document).ready(function() {
             scaleLabel: {
               display: true,
               labelString: 'Date'
+            },
+            type: 'time',
+            time: {
+               unit: 'hour'
             }
           }]
         }
@@ -584,7 +592,7 @@ $(document).ready(function() {
 
   <%for (var i = 0; i < C_DCN_DOGE_CHART.length; i++) {
     %> 
-      DCN_DOGE_Historical_Data_date.push(new Date(<%=C_DCN_DOGE_CHART[i].Timestamp*1000%>).toLocaleDateString());      
+      DCN_DOGE_Historical_Data_date.push(moment(<%=C_DCN_DOGE_CHART[i].Timestamp*1000%>).format("YYYY-MM-DD HH:mm"));      
       DCN_DOGE_Historical_Data_price.push(<%=(CC_DOGE_EUR*(C_DCN_DOGE_CHART[i].Price*DCN)).toFixed(2)%>);
     <%
   }
@@ -626,6 +634,10 @@ $(document).ready(function() {
             scaleLabel: {
               display: true,
               labelString: 'Date'
+            },
+            type: 'time',
+            time: {
+               unit: 'hour'
             }
           }]
         }
