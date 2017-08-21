@@ -207,7 +207,7 @@ request({
 	json: true
 	}, function (error, response, body) {
     	if (!error && response.statusCode === 200) {
-    		C_DCN_BTC_CHART = body.Data.reverse();	
+    		C_DCN_BTC_CHART = body.Data;	
     		console.log("C_DCN_BTC_CHART");	
     		//console.log(C_DCN_BTC_CHART);
 		}
