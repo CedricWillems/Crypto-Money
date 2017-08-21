@@ -22,7 +22,7 @@
               <a class="anchor" name="Dentacoin-Cryptopia-BTC"></a>
               <h3>
                 <a href="https://www.cryptopia.co.nz/Exchange/?market=DCN_BTC" target="_blank">BTC</a>
-                <a id="DCN_BTC_details_button" class="btn show-mobile" data-toggle="tooltip" data-placement="right" title="Show details!">
+                <a id="C_DCN_BTC_details_button" class="btn show-mobile" data-toggle="tooltip" data-placement="right" title="Show details!">
                   <span style="font-size: 1.4em" class="glyphicon glyphicon-arrow-down"></span>
                 </a>
               </h3> 
@@ -115,7 +115,7 @@
               <a class="anchor" name="Dentacoin-Cryptopia-LTC"></a>
               <h3>
                 <a href="https://www.cryptopia.co.nz/Exchange/?market=DCN_LTC" target="_blank">LTC</a>
-                <a id="DCN_LTC_details_button" class="btn show-mobile" data-toggle="tooltip" data-placement="right" title="Show details!">
+                <a id="C_DCN_LTC_details_button" class="btn show-mobile" data-toggle="tooltip" data-placement="right" title="Show details!">
                   <span style="font-size: 1.4em" class="glyphicon glyphicon-arrow-down"></span>
                 </a>
               </h3>
@@ -209,7 +209,7 @@
             <a class="anchor" name="Dentacoin-Cryptopia-DOGE"></a>
               <h3>
                 <a href="https://www.cryptopia.co.nz/Exchange/?market=DCN_DOGE" target="_blank">DOGE</a>
-                <a id="DCN_DOGE_details_button" class="btn show-mobile" data-toggle="tooltip" data-placement="right" title="Show details!">
+                <a id="C_DCN_DOGE_details_button" class="btn show-mobile" data-toggle="tooltip" data-placement="right" title="Show details!">
                   <span style="font-size: 1.4em" class="glyphicon glyphicon-arrow-down"></span>
                 </a>
               </h3>
@@ -473,7 +473,7 @@ $(document).ready(function() {
   var DCN_BTC_Historical_Data_date = [];
   var DCN_BTC_Historical_Data_price = [];
 
-  <%for (var i = 0; i < C_DCN_BTC_CHART.length; i += 5) {
+  <%for (var i = 0; i < C_DCN_BTC_CHART.length; i + 5) {
     %> 
     console.log(<%=i%>);
       DCN_BTC_Historical_Data_date.push(new Date(<%=C_DCN_BTC_CHART[i].Timestamp*1000%>).toLocaleDateString());      
