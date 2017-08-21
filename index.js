@@ -54,6 +54,10 @@ var C_DCN_BTC;
 var C_DCN_LTC;
 var C_DCN_DOGE;
 
+var C_DCN_BTC_CHART;
+var C_DCN_LTC_CHART;
+var C_DCN_DOGE_CHART;
+
 // Dentacoin Cryptopia
 var CMC_DCN_BTC;
 
@@ -81,8 +85,6 @@ request({
 
 var PREV_WEEK = Date.now()/1000-604800;
 var PREV_WEEK_URL = "https://poloniex.com/public?command=returnChartData&currencyPair=BTC_ETH&start="+PREV_WEEK+"&end=9999999999&period=14400";
-console.log(PREV_WEEK);
-console.log(PREV_WEEK_URL);
 
 // Poloniex
 request({
@@ -92,7 +94,7 @@ request({
     	if (!error && response.statusCode === 200) {
     		ETH_Historical_Data = body;	
     		console.log("ETH_Historical_Data");	
-    		console.log(ETH_Historical_Data);	
+    		//console.log(ETH_Historical_Data);	
 		}
 	})
 
@@ -199,6 +201,42 @@ cryptopia_url.map(function (item){
 		})	
 });		
 
+// Cryptopia chart DCN/BTC
+request({
+	url: "https://www.cryptopia.co.nz/api/GetMarketHistory/5363/48",
+	json: true
+	}, function (error, response, body) {
+    	if (!error && response.statusCode === 200) {
+    		C_DCN_BTC_CHART = body.Data.reverse();	
+    		console.log("C_DCN_BTC_CHART");	
+    		//console.log(C_DCN_BTC_CHART);
+		}
+	})
+
+// Cryptopia chart DCN/LTC
+request({
+	url: "https://www.cryptopia.co.nz/api/GetMarketHistory/5364/48",
+	json: true
+	}, function (error, response, body) {
+    	if (!error && response.statusCode === 200) {
+    		C_DCN_LTC_CHART = body.Data.reverse();	
+    		console.log("C_DCN_LTC_CHART");	
+    		//console.log(C_DCN_LTC_CHART);
+		}
+	})
+
+// Cryptopia chart DCN/DOGE
+request({
+	url: "https://www.cryptopia.co.nz/api/GetMarketHistory/5365/48",
+	json: true
+	}, function (error, response, body) {
+    	if (!error && response.statusCode === 200) {
+    		C_DCN_DOGE_CHART = body.Data.reverse();	
+    		console.log("C_DCN_DOGE_CHART");	
+    		//console.log(C_DCN_DOGE_CHART);
+		}
+	})
+
 coinmarketcap_url.map(function (item){
 	request({
 		url: item,
@@ -242,6 +280,8 @@ app.get('/', function(request, response) {
 	DCN: DCN, NDC: NDC, 
 // Cryptopia Dentacoin
   	C_DCN_BTC: C_DCN_BTC, C_DCN_LTC: C_DCN_LTC, C_DCN_DOGE: C_DCN_DOGE, 
+// Cryptopia Dentacoin Chart
+	C_DCN_BTC_CHART: C_DCN_BTC_CHART, C_DCN_LTC_CHART: C_DCN_LTC_CHART, C_DCN_DOGE_CHART: C_DCN_DOGE_CHART,
 // Coin Market Cap Dentacoin
  	CMC_DCN_BTC: CMC_DCN_BTC,
 // Coin Market Cap Neverdie

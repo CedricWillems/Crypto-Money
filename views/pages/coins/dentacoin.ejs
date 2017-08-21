@@ -98,6 +98,16 @@
                   <button class="btn btn-primary"><span class="glyphicon glyphicon-chevron-right"></span> Calculate</button>
                 </div>
               </div>
+<!-- Chart DCN BTC -->
+              <a class="anchor" name="DCN-BTC-chart"></a>              
+              <div class="row col-md-12" style="font-size: 1.2em">
+                <h3><a href="https://www.cryptopia.co.nz/Exchange?market=DCN_BTC" target="_blank"><i class="fa fa-line-chart" aria-hidden="true"></i> DCN/BTC</a></h3>
+                <div class="row">
+                  <div class="col-md-12 col-xs-12">
+                    <canvas id="DCN_BTC_CHART" width="400" height="400"></canvas>
+                  </div>
+                </div>
+              </div>
             </div>
 
 <!-- LTC -->
@@ -182,6 +192,16 @@
                   <button class="btn btn-primary"><span class="glyphicon glyphicon-chevron-right"></span> Calculate</button>
                 </div>
               </div>
+<!-- Chart DCN LTC -->
+              <a class="anchor" name="DCN-LTC-chart"></a>              
+              <div id= class="row col-md-12" style="font-size: 1.2em">
+                <h3><a href="https://www.cryptopia.co.nz/Exchange?market=DCN_LTC" target="_blank"<i class="fa fa-line-chart" aria-hidden="true"></i> DCN/LTC</a></h3>
+                <div class="row">
+                  <div class="col-md-12 col-xs-12">
+                    <canvas id="DCN_LTC_CHART" width="400" height="400"></canvas>
+                  </div>
+                </div>
+              </div>
             </div>
 
 <!-- DOGE -->
@@ -263,6 +283,16 @@
                 </div>
                 <div class="Dentacoin_C_DOGE_Button_Calc main col-md-4 col-xs-6">
                   <button class="btn btn-primary"><span class="glyphicon glyphicon-chevron-right"></span> Calculate</button>
+                </div>
+              </div>
+<!-- Chart DCN DOGE -->
+              <a class="anchor" name="DCN-DOGE-chart"></a>              
+              <div class="row col-md-12" style="font-size: 1.2em">
+                <h3><a href="https://www.cryptopia.co.nz/Exchange?market=DCN_DOGE" target="_blank"><i class="fa fa-line-chart" aria-hidden="true"></i> DCN/DOGE</a></h3>
+                <div class="row">
+                  <div class="col-md-12 col-xs-12">
+                    <canvas id="DCN_DOGE_CHART" width="400" height="400"></canvas>
+                  </div>
                 </div>
               </div>
             </div> 
@@ -387,7 +417,7 @@ $(document).ready(function() {
 
   $("#Calculate_C_DCN_BTC").on("input", function() {
     var Calculated_C_DCN_BTC = Number($("#BTC_EUR").html())*($("#Calculate_C_DCN_BTC").val() * Number($("#DCN").html()));
-    $("#Calculated_C_DCN_BTC").html(Calculated_DCN_BTC.toFixed(2));
+    $("#Calculated_C_DCN_BTC").html(Calculated_C_DCN_BTC.toFixed(2));
   });
 
 // LTC
@@ -403,7 +433,7 @@ $(document).ready(function() {
 
   $("#Calculate_C_DCN_LTC").on("input", function() {
     var Calculated_C_DCN_LTC = Number($("#LTC_EUR").html())*($("#Calculate_C_DCN_LTC").val() * Number($("#DCN").html()));
-    $("#Calculated_C_DCN_LTC").html(Calculated_DCN_LTC.toFixed(2));
+    $("#Calculated_C_DCN_LTC").html(Calculated_C_DCN_LTC.toFixed(2));
   });
 // DOGE
   $("#C_DCN_DOGE_details_button").click(function(){
@@ -438,4 +468,166 @@ $(document).ready(function() {
     $("#Calculated_CMC_DCN_BTC").html(Calculated_CMC_DCN_BTC.toFixed(2));
   });  
 });
+
+// DCN_BTC
+  var DCN_BTC_Historical_Data_date = [];
+  var DCN_BTC_Historical_Data_price = [];
+
+  <%for (var i = 0; i < C_DCN_BTC_CHART.length; i++) {
+    %> 
+      DCN_BTC_Historical_Data_date.push(new Date(<%=C_DCN_BTC_CHART[i].Timestamp*1000%>).toLocaleDateString());      
+      DCN_BTC_Historical_Data_price.push(<%=(CC_BTC_EUR*(C_DCN_BTC_CHART[i].Price*DCN)).toFixed(2)%>);
+    <%
+  }
+  %>
+
+  console.log("BTC");
+  console.log(DCN_BTC_Historical_Data_date);
+  console.log(DCN_BTC_Historical_Data_price);
+
+  var ctx = document.getElementById("DCN_BTC_CHART").getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'line',
+      data: { 
+        labels: DCN_BTC_Historical_Data_date,        
+          datasets: [{
+              label: 'Price',
+              data: DCN_BTC_Historical_Data_price,
+              backgroundColor: [
+                'rgba(54, 162, 235, 0.2)',
+              ],
+              borderColor: [
+                'rgba(54, 162, 235, 1)',
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: 
+      {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Price in Euro (All DCN)'
+            }
+          }],
+          xAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Date'
+            }
+          }]
+        }
+      }
+  });
+
+// DCN_LTC
+  var DCN_LTC_Historical_Data_date = [];
+  var DCN_LTC_Historical_Data_price = [];
+
+  <%for (var i = 0; i < C_DCN_LTC_CHART.length; i++) {
+    %> 
+      DCN_LTC_Historical_Data_date.push(new Date(<%=C_DCN_LTC_CHART[i].Timestamp*1000%>).toLocaleDateString());      
+      DCN_LTC_Historical_Data_price.push(<%=(CC_LTC_EUR*(C_DCN_LTC_CHART[i].Price*DCN)).toFixed(2)%>);
+    <%
+  }
+  %>
+
+  console.log("LTC");
+  console.log(DCN_LTC_Historical_Data_date);
+  console.log(DCN_LTC_Historical_Data_price);
+
+  var ctx = document.getElementById("DCN_LTC_CHART").getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'line',
+      data: { 
+        labels: DCN_LTC_Historical_Data_date,        
+          datasets: [{
+              label: 'Price',
+              data: DCN_LTC_Historical_Data_price,
+              backgroundColor: [
+                'rgba(54, 162, 235, 0.2)',
+              ],
+              borderColor: [
+                'rgba(54, 162, 235, 1)',
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: 
+      {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Price in Euro (All DCN)'
+            }
+          }],
+          xAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Date'
+            }
+          }]
+        }
+      }
+  });
+
+// DCN_DOGE
+  var DCN_DOGE_Historical_Data_date = [];
+  var DCN_DOGE_Historical_Data_price = [];
+
+  <%for (var i = 0; i < C_DCN_DOGE_CHART.length; i++) {
+    %> 
+      DCN_DOGE_Historical_Data_date.push(new Date(<%=C_DCN_DOGE_CHART[i].Timestamp*1000%>).toLocaleDateString());      
+      DCN_DOGE_Historical_Data_price.push(<%=(CC_DOGE_EUR*(C_DCN_DOGE_CHART[i].Price*DCN)).toFixed(2)%>);
+    <%
+  }
+  %>
+
+  console.log("DOGE");
+  console.log(DCN_DOGE_Historical_Data_date);
+  console.log(DCN_DOGE_Historical_Data_price);
+
+  var ctx = document.getElementById("DCN_DOGE_CHART").getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'line',
+      data: { 
+        labels: DCN_DOGE_Historical_Data_date,        
+          datasets: [{
+              label: 'Price',
+              data: DCN_DOGE_Historical_Data_price,
+              backgroundColor: [
+                'rgba(54, 162, 235, 0.2)',
+              ],
+              borderColor: [
+                'rgba(54, 162, 235, 1)',
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: 
+      {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Price in Euro (All DCN)'
+            }
+          }],
+          xAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Date'
+            }
+          }]
+        }
+      }
+  });
 </script>
