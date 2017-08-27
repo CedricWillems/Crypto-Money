@@ -16,11 +16,21 @@
     var C_DCN_LTC_LastPrice = Number((C_DCN_LTC.LastPrice).toFixed(8));
     var C_DCN_DOGE_LastPrice = Number((C_DCN_DOGE.LastPrice).toFixed(8));
 
+    // Neverdie
     var CMC_NDC_BTC_LastPrice = Number(CMC_NDC_BTC.price_btc).toFixed(8);
     var CMC_NDC_BTC_USD = Number(CMC_NDC_BTC.price_usd).toFixed(4);
 
+    // Dentacoin
     var CMC_DCN_BTC_LastPrice = Number(CMC_DCN_BTC.price_btc).toFixed(8);
     var CMC_DCN_BTC_USD = Number(CMC_DCN_BTC.price_usd).toFixed(4);
+
+    // Verge
+    var CMC_XVG_BTC_LastPrice = Number(CMC_XVG_BTC.price_btc).toFixed(8);
+    var CMC_XVG_BTC_USD = Number(CMC_XVG_BTC.price_usd).toFixed(4);
+
+    // Hacker Gold
+    var CMC_HKG_BTC_LastPrice = Number(CMC_HKG_BTC.price_btc).toFixed(8);
+    var CMC_HKG_BTC_USD = Number(CMC_HKG_BTC.price_usd).toFixed(4);
   %>  
 
     <div class="jumbotron text-center" style="padding-top:50px; padding-bottom: 35px;">
@@ -58,6 +68,14 @@
     <a class="anchor" name="Neverdie"></a>
     <% include coins/neverdiecoin.ejs %>
 
+    <!-- Verge -->
+    <a class="anchor" name="Verge"></a>
+    <% include coins/verge.ejs %>
+
+    <!-- Hacker Gold -->
+    <a class="anchor" name="Verge"></a>
+    <% include coins/hackergold.ejs %>
+
     <div class="alert alert-info text-center" role="alert">
       <h2> &copy; Cedric Willems</h2>
     </div>
@@ -65,5 +83,6 @@
 <script>
 
 </script>
+
   </body>
 </html>

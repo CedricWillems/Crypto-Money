@@ -21,6 +21,8 @@ var cryptopia_url = [
 var coinmarketcap_url = [
 					"https://api.coinmarketcap.com/v1/ticker/dentacoin/",
 					"https://api.coinmarketcap.com/v1/ticker/neverdie/",
+					"https://api.coinmarketcap.com/v1/ticker/verge/",
+					"https://api.coinmarketcap.com/v1/ticker/hacker-gold/",
 ];
 
 // Poloniex
@@ -67,6 +69,17 @@ const NDC = 84;
 // Neverdie Coin Market Cap
 var CMC_NDC_BTC;
 
+// Verge
+const XVG = 7460;
+
+// Verge Coin Market Cap
+var CMC_XVG_BTC;
+
+// Hacker Gold
+const HKG = 87.3319;
+
+// Hacker Gold Coin Market Cap
+var CMC_HKG_BTC;
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -254,7 +267,15 @@ coinmarketcap_url.map(function (item){
 			    	CMC_DCN_BTC = body[0];
 	    			console.log("CMC_DCN_BTC");
 //	    			console.log(CMC_DCN_BTC);
-				}	
+				}else if(body[0].id === "verge"){
+			    	CMC_XVG_BTC = body[0];
+	    			console.log("CMC_XVG_BTC");
+//	    			console.log(CMC_XVG_BTC);
+				}else if(body[0].id === "hacker-gold"){
+			    	CMC_HKG_BTC = body[0];
+	    			console.log("CMC_HKG_BTC");
+//	    			console.log(CMC_HKG_BTC);
+				}		
 
 
     		}
@@ -277,7 +298,7 @@ app.get('/', function(request, response) {
 // Poloniex Historical data
 	ETH_Historical_Data: ETH_Historical_Data,
 // Constants
-	DCN: DCN, NDC: NDC, 
+	DCN: DCN, NDC: NDC, XVG: XVG, HKG: HKG,
 // Cryptopia Dentacoin
   	C_DCN_BTC: C_DCN_BTC, C_DCN_LTC: C_DCN_LTC, C_DCN_DOGE: C_DCN_DOGE, 
 // Cryptopia Dentacoin Chart
@@ -285,7 +306,11 @@ app.get('/', function(request, response) {
 // Coin Market Cap Dentacoin
  	CMC_DCN_BTC: CMC_DCN_BTC,
 // Coin Market Cap Neverdie
-  	CMC_NDC_BTC: CMC_NDC_BTC,});
+  	CMC_NDC_BTC: CMC_NDC_BTC,
+// Coin Market Cap Verge
+ 	CMC_XVG_BTC: CMC_XVG_BTC,
+// Coin Market Cap Hacker Gold
+ 	CMC_HKG_BTC: CMC_HKG_BTC,});
 });
 
 app.listen(app.get('port'), function() {
