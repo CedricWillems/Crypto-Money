@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-12">
+<!-- Begin Verge panel -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="panel-title accordion-toggle" style="font-size: 2em" data-toggle="collapse" data-target="#total">
+          Total Crypto Coins (BTC) - 
+          <b>€ <%=(ES_ETH_WALLET*CC_ETH_EUR+NP_BALANCE*CC_ETH_EUR+CC_BTC_EUR*(CMC_DCN_BTC_LastPrice*DCN)+CC_BTC_EUR*(CMC_NDC_BTC_LastPrice*NDC)+CC_BTC_EUR*(CMC_XVG_BTC_LastPrice*XVG)+CC_BTC_EUR*(CMC_HKG_BTC_LastPrice*HKG)).toFixed(2)%></b>
+        </h2>
+      </div>
+      <div id="total"  class="panel-body collapse">
+        <div class="row col-md-12 col-xs-12" style="font-size: 1.2em">          
+          <div class="row">
+            <div class="col-md-12 col-xs-12">
+              <h3><a href="#Ethereum">ETH: € <%=(ES_ETH_WALLET*CC_ETH_EUR+NP_BALANCE*CC_ETH_EUR).toFixed(2)%></a></h3>
+              <h3><a href="#Dentacoin">DCN: € <%=(CC_BTC_EUR*(CMC_DCN_BTC_LastPrice*DCN)).toFixed(2)%></h3> 
+              <h3><a href="#Neverdie">NDC: € <%=(CC_BTC_EUR*(CMC_NDC_BTC_LastPrice*NDC)).toFixed(2)%></h3> 
+              <h3><a href="#Verge">XVG: € <%=(CC_BTC_EUR*(CMC_XVG_BTC_LastPrice*XVG)).toFixed(2)%></h3> 
+              <h3><a href="#Hackergold">HKG: € <%=(CC_BTC_EUR*(CMC_HKG_BTC_LastPrice*HKG)).toFixed(2)%></h3> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  moment().format();
+$(document).ready(function() {
+  $('[data-toggle="tooltip"]').tooltip();   
+</script>

@@ -111,3 +111,20 @@ ul#coin_names li:hover~, ul#coin_names li:active{
    position: relative;
    top: 50px;
 }
+
+.panel-heading .accordion-toggle:after {
+  /* symbol for "opening" panels */
+  font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+  content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+  float: right;        /* adjust as needed */
+  color: grey;         /* adjust as needed */
+}
+
+.panel-heading .accordion-toggle:hover, .panel-heading .accordion-toggle.collapsed:hover{
+  cursor: pointer;
+}
+    
+.panel-heading .accordion-toggle.collapsed:after {
+  /* symbol for "collapsed" panels */
+  content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+}
