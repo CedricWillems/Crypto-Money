@@ -128,3 +128,7 @@ ul#coin_names li:hover~, ul#coin_names li:active{
   /* symbol for "collapsed" panels */
   content: "\e080";    /* adjust as needed, taken from bootstrap.css */
 }
+
+.center{
+  text-align: center;
+}

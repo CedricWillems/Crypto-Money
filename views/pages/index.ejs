@@ -12,19 +12,29 @@
     var CC_ETH_EUR = Number((CC_ETH["EUR"]/CC_ETH["ETH"]).toFixed(4));
     var CC_LTC_EUR = Number((CC_LTC["EUR"]/CC_LTC["LTC"]).toFixed(4));
     var CC_DOGE_EUR = Number((CC_DOGE["EUR"]/CC_DOGE["DOGE"]).toFixed(6));
+
+// Neverdie
+  // Coin Market Cap
+    var CMC_NDC_BTC_LastPrice = Number(CMC_NDC_BTC.price_btc).toFixed(8);
+    var CMC_NDC_BTC_USD = Number(CMC_NDC_BTC.price_usd).toFixed(4);
+
+// Dentacoin
+  // Cryptopia
     var C_DCN_BTC_LastPrice = Number((C_DCN_BTC.LastPrice).toFixed(8));
     var C_DCN_LTC_LastPrice = Number((C_DCN_LTC.LastPrice).toFixed(8));
     var C_DCN_DOGE_LastPrice = Number((C_DCN_DOGE.LastPrice).toFixed(8));
 
-    // Neverdie
-    var CMC_NDC_BTC_LastPrice = Number(CMC_NDC_BTC.price_btc).toFixed(8);
-    var CMC_NDC_BTC_USD = Number(CMC_NDC_BTC.price_usd).toFixed(4);
-
-    // Dentacoin
+  // Coin Market Cap
     var CMC_DCN_BTC_LastPrice = Number(CMC_DCN_BTC.price_btc).toFixed(8);
     var CMC_DCN_BTC_USD = Number(CMC_DCN_BTC.price_usd).toFixed(4);
 
-    // Verge
+// Verge
+  // Cryptopia
+    var C_XVG_BTC_LastPrice = Number((C_XVG_BTC.LastPrice).toFixed(8));
+    var C_XVG_LTC_LastPrice = Number((C_XVG_LTC.LastPrice).toFixed(8));
+    var C_XVG_DOGE_LastPrice = Number((C_XVG_DOGE.LastPrice).toFixed(8));
+
+  // Coin Market Cap
     var CMC_XVG_BTC_LastPrice = Number(CMC_XVG_BTC.price_btc).toFixed(8);
     var CMC_XVG_BTC_USD = Number(CMC_XVG_BTC.price_usd).toFixed(4);
 
@@ -85,7 +95,10 @@
     </div>
 
 <script>
-
+$(document).ready(function() { 
+  moment().format();
+  $('[data-toggle="tooltip"]').tooltip();   
+});
 </script>
 
   </body>

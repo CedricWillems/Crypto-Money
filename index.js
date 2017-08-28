@@ -16,6 +16,9 @@ var cryptopia_url = [
 					"https://www.cryptopia.co.nz/api/GetMarket/DCN_BTC",
 					"https://www.cryptopia.co.nz/api/GetMarket/DCN_LTC",
 					"https://www.cryptopia.co.nz/api/GetMarket/DCN_DOGE",
+					"https://www.cryptopia.co.nz/api/GetMarket/XVG_BTC",
+					"https://www.cryptopia.co.nz/api/GetMarket/XVG_LTC",
+					"https://www.cryptopia.co.nz/api/GetMarket/XVG_DOGE",
 ];
 
 var coinmarketcap_url = [
@@ -26,60 +29,63 @@ var coinmarketcap_url = [
 ];
 
 // Poloniex
-var ETH_Historical_Data;
+	var ETH_Historical_Data;
 
 // Etherscan Wallet
-var ES_ETH_WALLET;
+	var ES_ETH_WALLET;
 
 // Nanopool
-const NP_BALANCE_url = "https://api.nanopool.org/v1/eth/balance/0xea4686c4bd1023d0c888079600c594efd524b7aa";
-const NP_REPORTED_HASHRATE_url = "https://api.nanopool.org/v1/eth/reportedhashrate/0xea4686c4bd1023d0c888079600c594efd524b7aa";
-const NP_CURRENT_HASHRATE_url = "https://api.nanopool.org/v1/eth/hashrate/0xea4686c4bd1023d0c888079600c594efd524b7aa";
-const NP_AVG_HASHRATE_url = "https://api.nanopool.org/v1/eth/avghashratelimited/0xea4686c4bd1023d0c888079600c594efd524b7aa/6";
+	const NP_BALANCE_url = "https://api.nanopool.org/v1/eth/balance/0xea4686c4bd1023d0c888079600c594efd524b7aa";
+	const NP_REPORTED_HASHRATE_url = "https://api.nanopool.org/v1/eth/reportedhashrate/0xea4686c4bd1023d0c888079600c594efd524b7aa";
+	const NP_CURRENT_HASHRATE_url = "https://api.nanopool.org/v1/eth/hashrate/0xea4686c4bd1023d0c888079600c594efd524b7aa";
+	const NP_AVG_HASHRATE_url = "https://api.nanopool.org/v1/eth/avghashratelimited/0xea4686c4bd1023d0c888079600c594efd524b7aa/6";
 
-var NP_BALANCE;
-var NP_REPORTED_HASHRATE;
-var NP_CURRENT_HASHRATE;
-var NP_AVG_HASHRATE;
+	var NP_BALANCE;
+	var NP_REPORTED_HASHRATE;
+	var NP_CURRENT_HASHRATE;
+	var NP_AVG_HASHRATE;
 
 // Prices Cryptocompare
-var CC_BTC;
-var CC_LTC;
-var CC_DOGE;
-var CC_ETH;
+	var CC_BTC;
+	var CC_LTC;
+	var CC_DOGE;
+	var CC_ETH;
 
 // Dentacoin
-const DCN = 800000;
-
-// Dentacoin Cryptopia
-var C_DCN_BTC;
-var C_DCN_LTC;
-var C_DCN_DOGE;
-
-var C_DCN_BTC_CHART;
-var C_DCN_LTC_CHART;
-var C_DCN_DOGE_CHART;
-
-// Dentacoin Cryptopia
-var CMC_DCN_BTC;
+	const DCN = 800000;
+	// Cryptopia
+	var C_DCN_BTC;
+	var C_DCN_LTC;
+	var C_DCN_DOGE;	
+	var C_DCN_BTC_CHART;
+	var C_DCN_LTC_CHART;
+	var C_DCN_DOGE_CHART;
+	// Coin Market Cap
+	var CMC_DCN_BTC;
 
 // Neverdie 
-const NDC = 84;
-
-// Neverdie Coin Market Cap
-var CMC_NDC_BTC;
+	const NDC = 84;
+	// Coin Market Cap
+	var CMC_NDC_BTC;
 
 // Verge
-const XVG = 7460;
+	const XVG = 7460;
+	// Cryptopia
+	var C_DCN_BTC;
+	var C_XVG_LTC;
+	var C_XVG_DOGE;
 
-// Verge Coin Market Cap
-var CMC_XVG_BTC;
+	var C_XVG_BTC_CHART;
+	var C_XVG_LTC_CHART;
+	var C_XVG_DOGE_CHART;
+
+	// Coin Market Cap
+	var CMC_XVG_BTC;
 
 // Hacker Gold
-const HKG = 87.3319;
-
-// Hacker Gold Coin Market Cap
-var CMC_HKG_BTC;
+	const HKG = 87.3319;	
+	// Coin Market Cap
+	var CMC_HKG_BTC;
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -202,12 +208,27 @@ cryptopia_url.map(function (item){
 				if(body.Data.Label === "DCN/BTC"){
 			    	C_DCN_BTC = body.Data;
 	    			console.log("C_DCN_BTC");
+	    			//console.log(C_DCN_BTC);
 				}else if(body.Data.Label === "DCN/LTC"){
 			    	C_DCN_LTC = body.Data;
 	    			console.log("C_DCN_LTC");
+	    			//console.log(C_DCN_LTC);
 				}else if(body.Data.Label === "DCN/DOGE"){
 			    	C_DCN_DOGE = body.Data;
 	    			console.log("C_DCN_DOGE");
+	    			//console.log(C_DCN_DOGE);
+				}else if(body.Data.Label === "XVG/BTC"){
+			    	C_XVG_BTC = body.Data;
+	    			console.log("C_XVG_BTC");
+	    			//console.log(C_XVG_BTC);
+				}else if(body.Data.Label === "XVG/LTC"){
+			    	C_XVG_LTC = body.Data;
+	    			console.log("C_XVG_LTC");
+	    			//console.log(C_XVG_LTC);
+				}else if(body.Data.Label === "XVG/DOGE"){
+			    	C_XVG_DOGE = body.Data;
+	    			console.log("C_XVG_DOGE");
+	    			//console.log(C_XVG_DOGE);
 				}	
 
     		}
@@ -247,6 +268,42 @@ request({
     		C_DCN_DOGE_CHART = body.Data.reverse();	
     		console.log("C_DCN_DOGE_CHART");	
     		//console.log(C_DCN_DOGE_CHART);
+		}
+	})
+
+// Cryptopia chart XVG/BTC
+request({
+	url: "https://www.cryptopia.co.nz/api/GetMarketHistory/1376/48",
+	json: true
+	}, function (error, response, body) {
+    	if (!error && response.statusCode === 200) {
+    		C_XVG_BTC_CHART = body.Data;	
+    		console.log("C_XVG_BTC_CHART");	
+    		//console.log(C_XVG_BTC_CHART);
+		}
+	})
+
+// Cryptopia chart XVG/LTC
+request({
+	url: "https://www.cryptopia.co.nz/api/GetMarketHistory/1377/48",
+	json: true
+	}, function (error, response, body) {
+    	if (!error && response.statusCode === 200) {
+    		C_XVG_LTC_CHART = body.Data.reverse();	
+    		console.log("C_XVG_LTC_CHART");	
+    		//console.log(C_XVG_LTC_CHART);
+		}
+	})
+
+// Cryptopia chart XVG/DOGE
+request({
+	url: "https://www.cryptopia.co.nz/api/GetMarketHistory/1378/48",
+	json: true
+	}, function (error, response, body) {
+    	if (!error && response.statusCode === 200) {
+    		C_XVG_DOGE_CHART = body.Data.reverse();	
+    		console.log("C_XVG_DOGE_CHART");	
+    		//console.log(C_XVG_DOGE_CHART);
 		}
 	})
 
@@ -309,6 +366,10 @@ app.get('/', function(request, response) {
   	CMC_NDC_BTC: CMC_NDC_BTC,
 // Coin Market Cap Verge
  	CMC_XVG_BTC: CMC_XVG_BTC,
+// Cryptopia Verge
+  	C_XVG_BTC: C_XVG_BTC, C_XVG_LTC: C_XVG_LTC, C_XVG_DOGE: C_XVG_DOGE, 
+// Cryptopia Verge Chart
+	C_XVG_BTC_CHART: C_XVG_BTC_CHART, C_XVG_LTC_CHART: C_XVG_LTC_CHART, C_XVG_DOGE_CHART: C_XVG_DOGE_CHART,
 // Coin Market Cap Hacker Gold
  	CMC_HKG_BTC: CMC_HKG_BTC,});
 });

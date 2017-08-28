@@ -2,114 +2,114 @@
   <div class="col-md-12">               
 <!-- Etherscan -->
     <a class="anchor" name="Etherscan-wallet"></a>
+    <div class="center">
+      <h2 style="font-size: 2em">
+          Ethereum Mining Rig
+          <br/>
+          <small><%=(ES_ETH_WALLET + NP_BALANCE).toFixed(8)%> ETH - <%=((ES_ETH_WALLET + NP_BALANCE)*CC_ETH_EUR).toFixed(2)%> EUR</small>
+      </h2>
+    </div>
+
+    <h2 style="color: green"></h2>
+
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h2 class="panel-title" style="font-size: 2em">Ethereum Mining Rig</h2>
+        <h2 class="panel-title" style="font-size: 2em"><a href="http://etherscan.io" target="_blank">Etherscan Wallet</a></h2>
       </div>
       <div class="panel-body">
-
-        <h2 style="color: green"><%=(ES_ETH_WALLET + NP_BALANCE).toFixed(8)%> ETH - <%=((ES_ETH_WALLET + NP_BALANCE)*CC_ETH_EUR).toFixed(2)%> EUR</h2>
-
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h2 class="panel-title" style="font-size: 2em"><a href="http://etherscan.io" target="_blank">Etherscan Wallet</a></h2>
-          </div>
-          <div class="panel-body">
-            <div class="row col-md-12" style="font-size: 1.2em">
-              <h3><a href="https://etherscan.io/address/0xea4686c4bd1023d0c888079600c594efd524b7aa" target="_blank">Ethereum</a></h3>
-              <div class="row">
-                <div class="col-md-4 col-xs-12">
-                  <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
-                    ETH Balance
-                  </div>
-                  <div style="color: green; font-size: 1.5em">
-                    ETH <%=(ES_ETH_WALLET).toFixed(8)%>
-                  </div>
-                </div>
-                <div class="col-md-8 col-xs-12">
-                  <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
-                    ETH in Euro
-                  </div>     
-                  <div style="color: green; font-size: 1.5em">
-                    EUR <%=(ES_ETH_WALLET*CC_ETH_EUR).toFixed(2)%>
-                  </div>     
-                </div>            
+        <div class="row col-md-12" style="font-size: 1.2em">
+          <h3><a href="https://etherscan.io/address/0xea4686c4bd1023d0c888079600c594efd524b7aa" target="_blank">Ethereum</a></h3>
+          <div class="row">
+            <div class="col-md-4 col-xs-12">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                ETH Balance
+              </div>
+              <div style="color: green; font-size: 1.5em">
+                ETH <%=(ES_ETH_WALLET).toFixed(8)%>
               </div>
             </div>
+            <div class="col-md-8 col-xs-12">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                ETH in Euro
+              </div>     
+              <div style="color: green; font-size: 1.5em">
+                EUR <%=(ES_ETH_WALLET*CC_ETH_EUR).toFixed(2)%>
+              </div>     
+            </div>            
           </div>
         </div>
+      </div>
+    </div>
 <!-- Nanopool -->
-        <a class="anchor" name="Nanopool-info"></a>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h2 class="panel-title" style="font-size: 2em"><a href="https://eth.nanopool.org/" target="_blank">Nanopool</a></h2>
-          </div>
-          <div class="panel-body">
-            <div class="row col-md-12" style="font-size: 1.2em">
-              <h3><a href="https://eth.nanopool.org/account/0xea4686c4bd1023d0c888079600c594efd524b7aa" target="_blank">Ethereum</a></h3>
-              <div class="row">
-                <div class="col-md-4 col-xs-12">
-                  <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
-                    ETH Balance
-                  </div>
-                  <div style="color: green; font-size: 1.5em">
-                    ETH <%=(NP_BALANCE).toFixed(8)%>
-                  </div>
-                </div>
-                <div class="col-md-8 col-xs-12">
-                  <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
-                    ETH in Euro
-                  </div>     
-                  <div style="color: green; font-size: 1.5em">
-                    EUR <%=(NP_BALANCE*CC_ETH_EUR).toFixed(2)%>
-                  </div>     
-                </div>            
-              </div>                
-              <div class="row">
-                <div class="col-md-4 col-xs-12">
-                  <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
-                    Current Calculated Hashrate
-                  </div>
-                  <div style="color: green; font-size: 1.5em">
-                    <%=NP_CURRENT_HASHRATE%> MH/s
-                  </div>
-                </div> 
-
-                <div class="col-md-4 col-xs-12">
-                  <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
-                    Reported Hashrate
-                  </div>
-                  <div style="color: green; font-size: 1.5em">
-                    <%=NP_REPORTED_HASHRATE%> MH/s
-                  </div>
-                </div> 
-                
-                <div class="col-md-4 col-xs-12">
-                  <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
-                    Average Hashrate Last 6 Hours
-                  </div>     
-                  <div style="color: green; font-size: 1.5em">
-                    <%=(NP_AVG_HASHRATE).toFixed(2)%> MH/s
-                  </div>     
-                </div>              
+    <a class="anchor" name="Nanopool-info"></a>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="panel-title" style="font-size: 2em"><a href="https://eth.nanopool.org/" target="_blank">Nanopool</a></h2>
+      </div>
+      <div class="panel-body">
+        <div class="row col-md-12" style="font-size: 1.2em">
+          <h3><a href="https://eth.nanopool.org/account/0xea4686c4bd1023d0c888079600c594efd524b7aa" target="_blank">Ethereum</a></h3>
+          <div class="row">
+            <div class="col-md-4 col-xs-12">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                ETH Balance
+              </div>
+              <div style="color: green; font-size: 1.5em">
+                ETH <%=(NP_BALANCE).toFixed(8)%>
               </div>
             </div>
+            <div class="col-md-8 col-xs-12">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                ETH in Euro
+              </div>     
+              <div style="color: green; font-size: 1.5em">
+                EUR <%=(NP_BALANCE*CC_ETH_EUR).toFixed(2)%>
+              </div>     
+            </div>            
+          </div>                
+          <div class="row">
+            <div class="col-md-4 col-xs-12">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                Current Calculated Hashrate
+              </div>
+              <div style="color: green; font-size: 1.5em">
+                <%=NP_CURRENT_HASHRATE%> MH/s
+              </div>
+            </div> 
+
+            <div class="col-md-4 col-xs-12">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                Reported Hashrate
+              </div>
+              <div style="color: green; font-size: 1.5em">
+                <%=NP_REPORTED_HASHRATE%> MH/s
+              </div>
+            </div> 
+            
+            <div class="col-md-4 col-xs-12">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                Average Hashrate Last 6 Hours
+              </div>     
+              <div style="color: green; font-size: 1.5em">
+                <%=(NP_AVG_HASHRATE).toFixed(2)%> MH/s
+              </div>     
+            </div>              
           </div>
         </div>
+      </div>
+    </div>
 <!-- Chart Ethereum Poloniex -->
-        <a class="anchor" name="Poloniex-chart"></a>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h2 class="panel-title" style="font-size: 2em"><a href="https://poloniex.com/" target="_blank">Poloniex Chart</a></h2>
-          </div>
-          <div class="panel-body">
-            <div class="row col-md-12" style="font-size: 1.2em">
-              <h3><a href="https://poloniex.com/exchange#btc_eth" target="_blank"><i class="fa fa-line-chart" aria-hidden="true"></i> Ethereum</a></h3>
-              <div class="row">
-                <div class="col-md-12 col-xs-12">
-                  <canvas id="myChart" width="400" height="400"></canvas>
-                </div>
-              </div>
+    <a class="anchor" name="Poloniex-chart"></a>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="panel-title" style="font-size: 2em"><a href="https://poloniex.com/" target="_blank">Poloniex Chart</a></h2>
+      </div>
+      <div class="panel-body">
+        <div class="row col-md-12" style="font-size: 1.2em">
+          <h3><a href="https://poloniex.com/exchange#btc_eth" target="_blank"><i class="fa fa-line-chart" aria-hidden="true"></i> Ethereum</a></h3>
+          <div class="row">
+            <div class="col-md-12 col-xs-12">
+              <canvas id="myChart" width="400" height="400"></canvas>
             </div>
           </div>
         </div>
@@ -119,6 +119,7 @@
 </div>
 
 <script>
+$(document).ready(function() {
   var ETH_Historical_Data_date = [];
   var ETH_Historical_Data_open = [];
   var ETH_Historical_Data_close = [];
@@ -212,5 +213,6 @@
         }
       }
   });
+});
 </script>
     
