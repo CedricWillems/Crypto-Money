@@ -125,7 +125,11 @@ request({
 	json: true
 	}, function (error, response, body) {
     	if (!error && response.statusCode === 200) {
-    		NP_BALANCE = body.data;	
+    		if(body.data != null){
+    			NP_BALANCE = body.data;		
+    		}else{
+    			NP_BALANCE = 0;
+    		}
     		console.log("NP_BALANCE");	
     		//console.log(NP_BALANCE);
 		}
@@ -137,7 +141,11 @@ request({
 	json: true
 	}, function (error, response, body) {
     	if (!error && response.statusCode === 200) {
-    		NP_CURRENT_HASHRATE = body.data;	
+    		if(body.data != null){
+    			NP_CURRENT_HASHRATE = body.data;		
+    		}else{
+    			NP_CURRENT_HASHRATE = 0;
+    		}
     		console.log("NP_CURRENT_HASHRATE");	
     		//console.log(NP_CURRENT_HASHRATE);
 		}
@@ -149,7 +157,11 @@ request({
 	json: true
 	}, function (error, response, body) {
     	if (!error && response.statusCode === 200) {
-    		NP_REPORTED_HASHRATE = body.data;	
+    		if(body.data != null){
+    			NP_REPORTED_HASHRATE = body.data;		
+    		}else{
+    			NP_REPORTED_HASHRATE = 0;
+    		}
     		console.log("NP_REPORTED_HASHRATE");	
     		//console.log(NP_REPORTED_HASHRATE);
 		}
@@ -161,7 +173,11 @@ request({
 	json: true
 	}, function (error, response, body) {
     	if (!error && response.statusCode === 200) {
-    		NP_AVG_HASHRATE = body.data;	
+    		if(body.data != null){
+    			NP_AVG_HASHRATE = body.data;	
+    		}else{
+    			NP_AVG_HASHRATE = 0;
+    		}
     		console.log("NP_AVG_HASHRATE");	
     		//console.log(NP_AVG_HASHRATE);
 		}
