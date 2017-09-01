@@ -1,97 +1,69 @@
-<a name="Neverdie"></a>
 <div class="row">
   <div class="col-md-12">
-      <div class="center">
-        <h2 style="font-size: 2em">
-          <a href="https://neverdie.io" target="_blank">Neverdie</a>
-        </h2>
+    <div class="center">
+      <h2 style="font-size: 2em">
+        <a href="https://neverdie.io" target="_blank">Neverdie</a>
+      </h2>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title" style="font-size: 2em">
+          <a class="anchor" name="Neverdie-CoinMarketCap-BTC"></a>
+          <a href="https://coinmarketcap.com" target="_blank">Coin Market Cap</a>
+        </h3>
       </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title" style="font-size: 2em">
-            <a class="anchor" name="Neverdie-CoinMarketCap-BTC"></a>
-            <a href="https://coinmarketcap.com" target="_blank">Coin Market Cap</a>
+      <div class="panel-body">
+        <div class="row col-md-12 col-xs-12" style="font-size: 1.2em">
+          <h3>
+            <a href="https://coinmarketcap.com/assets/neverdie/" target="_blank">BTC</a>
+            <a id="NDC_BTC_details_button" class="btn show-mobile" data-toggle="tooltip" data-placement="right" title="Show details!">
+              <span style="font-size: 1.4em" class="glyphicon glyphicon-arrow-down"></span>
+            </a>
           </h3>
-        </div>
-        <div class="panel-body">
-          <div class="row col-md-12 col-xs-12" style="font-size: 1.2em">
-            <h3>
-              <a href="https://coinmarketcap.com/assets/neverdie/" target="_blank">BTC</a>
-              <a id="NDC_BTC_details_button" class="btn show-mobile" data-toggle="tooltip" data-placement="right" title="Show details!">
-                <span style="font-size: 1.4em" class="glyphicon glyphicon-arrow-down"></span>
-              </a>
-            </h3>
-            <div class="row">
+          <div class="row">
+            <div class="col-md-4 col-xs-12">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                Total Neverdie
+              </div>
+              <div>
+                NDC <span id="NDC"><%=NDC%></span>
+              </div>
+            </div>
+
+            <div class="NDC_BTC_details hide-mobile">
               <div class="col-md-4 col-xs-12">
                 <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
-                  Total Neverdie
+                  Neverdie value in BTC
+                </div>     
+                <div>
+                  BTC <%=(Number(CMC_NDC_BTC_LastPrice)).toFixed(8)%>
+                </div>     
+              </div>
+              <div class="col-md-4 col-xs-12">
+                <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                  BTC value in Euro
                 </div>
                 <div>
-                  NDC <span id="NDC"><%=NDC%></span>
-                </div>
-              </div>
-
-              <div class="NDC_BTC_details hide-mobile">
-                <div class="col-md-4 col-xs-12">
-                  <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
-                    Neverdie value in BTC
-                  </div>     
-                  <div>
-                    BTC <%=(Number(CMC_NDC_BTC_LastPrice)).toFixed(8)%>
-                  </div>     
-                </div>
-                <div class="col-md-4 col-xs-12">
-                  <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
-                    BTC value in Euro
-                  </div>
-                  <div>
-                    EUR <span id="BTC_EUR"><%=CC_BTC_EUR%></span>
-                  </div>
+                  EUR <span id="BTC_EUR"><%=CC_BTC_EUR%></span>
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-4 col-xs-12 NDC_BTC_details hide-mobile">
-                <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
-                  Total Neverdie in BTC
-                </div>        
-                <div style="padding-bottom: 10px; color: green; font-size: 1.5em">
-                  BTC <%=(CMC_NDC_BTC_LastPrice*NDC).toFixed(3)%>
-                </div>  
-              </div>
-              <div class="col-md-8 col-xs-12">
-                <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
-                  Neverdie value in Euro
-                </div>
-                 <div style="padding-bottom: 10px; color: green; font-size: 1.5em">
-                  EUR <%=(CC_BTC_EUR*(CMC_NDC_BTC_LastPrice*NDC)).toFixed(2)%>
-                </div>
-              </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 col-xs-12 NDC_BTC_details hide-mobile">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                Total Neverdie in BTC
+              </div>        
+              <div style="padding-bottom: 10px; color: green; font-size: 1.5em">
+                BTC <%=(CMC_NDC_BTC_LastPrice*NDC).toFixed(3)%>
+              </div>  
             </div>
-            <div class="col-xs-12"></div>
-
-            <div class="row">
-              <div id="Neverdie_BTC_Calc" class="hide">              
-                <div class="col-md-4 col-xs-12">
-                  <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
-                    <button class="btn btn-primary Neverdie_BTC_Button_Calc"><span class="glyphicon glyphicon-remove"></span></button>
-                    Calculate Neverdie value
-                  </div>        
-                  <div class="form-group" style="padding-bottom: 10px; color: blue; font-size: 1.5em">
-                    <input id="Calculate_NDC_BTC" class="form-control" type="Number" placeholder="Fill in Neverdie value in BTC" />
-                  </div>  
-                </div>
-                <div class="col-md-4 col-xs-12">
-                  <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
-                    Calculated Neverdie in Euro
-                  </div>
-                   <div style="padding-bottom: 10px; color: blue; font-size: 1.5em">
-                    EUR <span id="Calculated_NDC_BTC"></span>
-                  </div>
-                </div>
+            <div class="col-md-8 col-xs-12">
+              <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                Neverdie value in Euro
               </div>
-              <div class="Neverdie_BTC_Button_Calc main col-md-4 col-xs-6">
-                <button class="btn btn-primary"><span class="glyphicon glyphicon-chevron-right"></span> Calculate</button>
+               <div style="padding-bottom: 10px; color: green; font-size: 1.5em">
+                EUR <%=(CC_BTC_EUR*(CMC_NDC_BTC_LastPrice*NDC)).toFixed(2)%>
               </div>
             </div>
           </div>
@@ -99,22 +71,10 @@
       </div>
     </div>
   </div>
+</div>
 
 <script>  
 $(document).ready(function() {  
-  $('[data-toggle="tooltip"]').tooltip();   
-
-  $("#Calculate_NDC_BTC").on("input", function() {
-
-    var Calculated_NDC_BTC = Number($("#BTC_EUR").html())*($("#Calculate_NDC_BTC").val() * Number($("#NDC").html()));
-    $("#Calculated_NDC_BTC").html(Calculated_NDC_BTC.toFixed(2));
-  });
-
-  $(".Neverdie_BTC_Button_Calc").click(function(){
-    $("#Neverdie_BTC_Calc").toggleClass("hide");
-    $(".Neverdie_BTC_Button_Calc.main").toggleClass("hide");
-  })
-
   $("#NDC_BTC_details_button").click(function(){
     $(".NDC_BTC_details").toggleClass("hide-mobile");
     $("#NDC_BTC_details_button span").toggleClass('glyphicon-arrow-down').toggleClass('glyphicon-arrow-up');

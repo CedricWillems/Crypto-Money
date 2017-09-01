@@ -1,0 +1,159 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="center">
+      <h2 style="font-size: 2em">
+        Calculator
+      </h2>
+    </div>
+<!-- Begin Calculator panel -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title" style="font-size: 2em">
+            Calculate <span class="selected_coin_name"></span>
+          </h3>
+        </div>
+<!-- Begin Panel Body Calculate -->
+        <div class="panel-body">
+<!-- Calculate Anchor -->
+          <a class="anchor" name="Calculate"></a>  
+            <div class="row col-md-12 col-xs-12" style="font-size: 1.2em; padding-bottom: 15px">
+              <div class="row form-group">
+                <div class="col-md-4 col-xs-12">
+                  <div class="form-group">
+                    <label for="selectCoin">Select your coin</label>
+                    <select id="selectCoin" class="form-control">
+                      <option value="0" selected>Choose...</option>                        
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-4 col-xs-12"></div>                
+                <div class="col-md-4 col-xs-12"></div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-4 col-xs-12">
+                  <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                    Total <span class="selected_coin_name"></span>                    
+                  </div>
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="selected_coin_name_short input-group-addon"></div>
+                    <input type="text" class="form-control" id="selected_coin_amount" placeholder="Selected Coin Amount">
+                  </div>                  
+                </div>
+                <div class="col-md-4 col-xs-12">
+                  <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                    <span class="selected_coin_name"></span> value in BTC
+                  </div> 
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon">BTC</div>
+                    <input type="text" class="form-control" id="coin_value" placeholder="Coin Value">
+                  </div>      
+                </div>
+                <div class="col-md-4 col-xs-12">
+                  <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                    BTC value in Euro
+                  </div>
+                  <div>
+                    EUR <span id="BTC_EUR"><%=CC_BTC_EUR%></span>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 col-xs-12 C_DCN_BTC_details hide-mobile">
+                  <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                    Total <span class="selected_coin_name"></span> in <span class="calculated_coin">BTC</span>
+                  </div>        
+                  <div style="padding-bottom: 10px; color: green; font-size: 1.5em">
+                    BTC &nbsp; <span class="selected_coin_value_total"></span>
+                  </div>  
+                </div>
+                <div class="col-md-8 col-xs-12">
+                  <div style="padding-top: 10px; padding-bottom: 5px; font-weight: bold">
+                    <span class="selected_coin_name"></span> value in Euro
+                  </div>
+                   <div style="padding-bottom: 10px; color: green; font-size: 1.5em">
+                    EUR <span id="calculated_coin_value_total_euro"></span>
+                  </div>
+                </div>
+              </div>              
+<!-- END PANEL BODY Calculate-->                    
+            </div>
+<!-- END PANEL Calculate-->                
+          </div>
+<!-- End Calculate panel -->  
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function() {
+  $(".selected_coin_name_short").text("<Coin>");
+  $(".selected_coin_name").text("<Coin>");
+  $(".coin_value").text("");
+  $(".selected_coin_value_total").text(Number("0").toFixed(6));
+  $("#calculated_coin_value_total_euro").text(Number("0").toFixed(2));
+
+  var coin_list = {
+    DCN: {name: "Dentacoin", amount: "<%=DCN%>", value: <%=C_DCN_BTC_LastPrice%>},
+    NDC: {name: "Neverdie", amount: "<%=NDC%>",  value: <%=CMC_NDC_BTC_LastPrice%>},
+    XVG: {name: "Verge", amount: "<%=XVG%>", value: <%=C_XVG_BTC_LastPrice%>},
+    HKG: {name: "Hacker Gold", amount: "<%=HKG%>", value: <%=CMC_HKG_BTC_LastPrice%>},
+  };
+
+  var select_coin_dropdown = document.getElementById("selectCoin");
+
+  for (var key in coin_list) {  
+    var option = document.createElement("option");
+    option.value = key;
+    option.text = coin_list[key].name;;
+    select_coin_dropdown.add(option);
+  }
+
+  select_coin_dropdown.addEventListener('change', function(){
+    if(this.value != 0){
+      var coin_short = this.value;
+      var coin = coin_list[this.value].name;
+      var coin_amount = coin_list[this.value].amount;
+      var coin_value = coin_list[this.value].value;
+
+      // Coin Names
+      $(".selected_coin_name_short").text(coin_short);
+      $(".selected_coin_name").text(coin);
+      
+      // Coin Values
+      $("#selected_coin_amount").val(coin_amount);
+      $("#coin_value").val(coin_value.toFixed(8));
+
+//    console.log(coin_short);
+      calcPrice();
+    }else{
+      $(".selected_coin_name_short").text("<Coin>");
+      $(".selected_coin_name").text("<Coin>");
+      $("#selected_coin_amount").val("");
+      $("#coin_value").val("");      
+      $(".selected_coin_value_total").text(Number("0").toFixed(6));
+      $("#calculated_coin_value_total_euro").text(Number("0").toFixed(2));
+    }
+  });
+
+
+  $("#selected_coin_amount, #coin_value").on("input", function(){
+//    console.log($("#selected_coin_amount").val());
+//    console.log($("#coin_value").val());
+
+    calcPrice();
+    
+//    console.log(Number($("#BTC_EUR").html()));
+//    console.log($("#coin_value").val());
+//    console.log(Number($("#selected_coin_amount").val()));
+
+  });
+
+  function calcPrice(){
+    $(".selected_coin_value_total").text(($("#coin_value").val()*Number($("#selected_coin_amount").val())).toFixed(6));
+
+    var calculated_coin = Number($("#BTC_EUR").html())*($("#coin_value").val() * Number($("#selected_coin_amount").val()));
+    $("#calculated_coin_value_total_euro").html(calculated_coin.toFixed(2));
+  };
+});
+</script>
